@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Carshowcase from "./Banners"; // Import the Carshowcase component
+import Banners from "./Banners";
 import { links } from "./MyLinks";
+import Services from "./Service";
+import Industries from "./Industries";
 
 const NavLinks = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const handleMouseEnter = (item) => {
     setHoveredItem(item);
   };
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    // Set isVisible to true after a delay
-    const timeout = setTimeout(() => {
-      setIsVisible(true);
-    }, 500); // Delay of 500 milliseconds
-
-    return () => clearTimeout(timeout);
-  }, []);
   const handleMouseLeave = () => {
     setHoveredItem(null);
   };
@@ -35,15 +36,14 @@ const NavLinks = () => {
         >
           <div className="px-3 text-left md:cursor-pointer group relative">
             <h1
-              className="py-3 z-30 text-black flex justify-between items-center md:pr-0 pr-5 border-b-2 border-transparent hover:border-gray-50 text-sm font-medium"
+              className="py-3 z-30 text-black flex justify-between items-center md:pr-0 pr-5 border-b-2 border-transparent hover:border-[#483d73] text-sm font-medium"
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
               }}
             >
-              <p className="z-30">{link.name}</p>
-              <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
-                <ion-icon name="chevron-down"></ion-icon>
-              </span>
+              <p className="border-b-l border-transparent text-lg z-30 hover:border-[#483d73] hover:border-b-2">
+                {link.name}
+              </p>
             </h1>
             {hoveredItem === link.name && (
               <div
@@ -54,33 +54,38 @@ const NavLinks = () => {
                   transition: "opacity 0.5s, transform 0.5s",
                 }}
               >
-                {link.name === "Home" && <Carshowcase />}
-                {link.submenu && link.name !== "Home" && (
-                  <div className="bg-white w-screen p-5 grid grid-cols-3 gap-10">
-                    {link.sublinks.map((mysublinks) => (
-                      <div key={mysublinks.Head} className="text-center">
-                        <h1 className="text-lg font-semibold">
-                          {mysublinks.Head}
-                        </h1>
-                        <ul>
-                          {mysublinks.sublink.map((slink) => (
-                            <li
-                              className="text-sm text-gray-600 my-2.5"
-                              key={slink.name}
-                            >
-                              <Link
-                                to={slink.link}
-                                className="hover:text-primary"
+                {link.name === "Home" && <Banners />}
+                {link.name === "Services" && <Services />}
+                {link.name === "Industries" && <Industries />}
+                {link.submenu &&
+                  link.name !== "Home" &&
+                  link.name !== "Services" &&
+                  link.name !== "Industries" && (
+                    <div className="bg-white w-screen p-5 grid grid-cols-3 gap-10">
+                      {link.sublinks.map((mysublinks) => (
+                        <div key={mysublinks.Head} className="text-center">
+                          <h1 className="text-lg font-semibold">
+                            {mysublinks.Head}
+                          </h1>
+                          <ul>
+                            {mysublinks.sublink.map((slink) => (
+                              <li
+                                className="text-sm text-gray-600 my-2.5"
+                                key={slink.name}
                               >
-                                {slink.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                                <Link
+                                  to={slink.link}
+                                  className="hover:text-primary"
+                                >
+                                  {slink.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
               </div>
             )}
           </div>
@@ -126,6 +131,9 @@ const NavLinks = () => {
           </div>
         </div>
       ))}
+      {hoveredItem && (
+        <div className="fixed top-[80vh] left-0 w-full h-[20vh] bg-white bg-opacity-0 backdrop-blur-md"></div>
+      )}
     </>
   );
 };

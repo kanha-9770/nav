@@ -45,7 +45,6 @@ const SidebarLinks = [
   { name: "Help Me Charge", link: "/help-me-charge" },
   { name: "Fleet", link: "/fleet" },
   { name: "Semi", link: "/semi" },
-  { name: "Roadster", link: "/roadster" },
 ];
 
 const CarShowcase = () => {
@@ -54,12 +53,12 @@ const CarShowcase = () => {
   const filteredCars = cars.filter((car) => car.category === hoveredCategory);
 
   return (
-    <div className="bg-white w-screen flex flex-col md:flex-row md:justify-center p-6 border-b-2 border-transparent hover:border-gray-50 text-sm font-medium group">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-20">
+    <div className="bg-white md:h-[80vh] w-screen flex flex-col md:flex-row md:justify-center p-6 text-sm font-medium">
+      <div className="w-full md:w-3/4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-20 md:mr-6 ml-40">
         {(filteredCars.length > 0 ? filteredCars : cars).map((car, index) => (
           <motion.div
             key={car.name}
-            className="group text-center"
+            className="group md:h-24 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2, duration: 0.5 }}
@@ -67,7 +66,7 @@ const CarShowcase = () => {
             <motion.img
               src={car.image}
               alt={car.name}
-              className="w-72 h-36 object-cover"
+              className="md:w-full h-32 object-cover"
               whileHover={{ scale: 1.05 }}
             />
             <h3 className="text-md font-bold mt-2">{car.name}</h3>
@@ -88,13 +87,13 @@ const CarShowcase = () => {
           </motion.div>
         ))}
       </div>
-      <div className="mx-8 mt-20 md:mt-0 h-auto"></div>
-      <div className="md:mt-30 text-start md:ml-6 flex flex-col gap-3 items-center gap-7 mt-40 md:mt-0 text-center fixed right-20 top-48 transform -translate-y-1/4">
+      <div className="mt-20 border-l border-gray-400 h-[60vh] md:mr-80"></div>
+      <div className="w-1/3  text-start md:ml-6 flex flex-col items-center gap-7 top-48 text-center fixed right-0 transform -translate-y-1/4">
         {SidebarLinks.map((link) => (
           <div
             key={link.name}
             onMouseEnter={() => setHoveredCategory(link.name)}
-            onMouseLeave={() => setHoveredCategory(null)}
+            onMouseLeave={() => setHoveredCategory(link.name)}
             className="text-gray-800 hover:text-blue-600 transition-colors duration-300 cursor-pointer"
           >
             {link.name}
@@ -104,9 +103,5 @@ const CarShowcase = () => {
     </div>
   );
 };
-
-
-
-
 
 export default CarShowcase;
