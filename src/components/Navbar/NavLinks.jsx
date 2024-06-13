@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Carshowcase from "./Carshowcase"; // Import the Carshowcase component
+import Carshowcase from "./Banners"; // Import the Carshowcase component
 import { links } from "./MyLinks";
 
 const NavLinks = () => {
