@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Carshowcase from "./Carshowcase"; // Import the Carshowcase component
 import { links } from "./MyLinks";
@@ -47,14 +47,13 @@ const NavLinks = () => {
             </h1>
             {hoveredItem === link.name && (
               <div
-                className="fixed top-0 left-0 w-full h-[90vh] bg-white z-10 flex border-b-4 border-gray-600 justify-center items-center"
+                className="fixed top-0 left-0 w-full h-[80vh] bg-white z-10 flex border-b-4 border-gray-600 justify-center items-center"
                 style={{
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateY(0)" : "translateY(-100%)",
                   transition: "opacity 0.5s, transform 0.5s",
                 }}
               >
-                {" "}
                 {link.name === "Home" && <Carshowcase />}
                 {link.submenu && link.name !== "Home" && (
                   <div className="bg-white w-screen p-5 grid grid-cols-3 gap-10">
