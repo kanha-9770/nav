@@ -24,12 +24,9 @@ const Navbar = () => {
         <ul className="md:flex hidden uppercase items-center gap-8 font-[Poppins]">
           <NavLinks />
           <li>
-            <Link href="/login" className="py-7 px-3 inline-block">
-              Login
-            </Link>
+          
           </li>
         </ul>
-        {/* Mobile nav */}
         <div
           className={`
             md:hidden fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
