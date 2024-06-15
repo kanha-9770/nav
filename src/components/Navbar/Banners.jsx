@@ -53,8 +53,8 @@ const CarShowcase = () => {
   const filteredCars = cars.filter((car) => car.category === hoveredCategory);
 
   return (
-    <div className="bg-white md:h-[80vh] w-screen flex flex-col md:flex-row md:justify-center p-6 text-sm font-medium">
-      <div className="w-full md:w-3/4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-20 md:mr-6 ml-40">
+    <div className="bg-white mt-auto  md:mt-0 md:h-[70vh] w-screen flex flex-col md:flex-row md:justify-center p-4 md:p-6 text-sm font-medium">
+      <div className="w-full md:w-3/4 md:ml-40 grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:mt-8 md:gap-6 ">
         {(filteredCars.length > 0 ? filteredCars : cars).map((car, index) => (
           <motion.div
             key={car.name}
@@ -66,7 +66,7 @@ const CarShowcase = () => {
             <motion.img
               src={car.image}
               alt={car.name}
-              className="md:w-full h-32 object-cover"
+              className="w-full h-32 object-cover"
               whileHover={{ scale: 1.05 }}
             />
             <h3 className="text-md font-bold mt-2">{car.name}</h3>
@@ -87,16 +87,16 @@ const CarShowcase = () => {
           </motion.div>
         ))}
       </div>
-      <div className="mt-20 border-l border-gray-400 h-[60vh] md:mr-80"></div>
-      <div className="w-1/3  text-start md:ml-6 flex flex-col items-center gap-7 top-48 text-center fixed right-0 transform -translate-y-1/4">
+      <div className="hidden md:block border-l mt-8 border-gray-400 h-auto md:h-[60vh] md:mr-8"></div>
+      <div className="w-full md:w-1/4 mt-8 md:ml-6 flex flex-col items-start gap-4 md:gap-7">
         {SidebarLinks.map((link) => (
           <div
             key={link.name}
             onMouseEnter={() => setHoveredCategory(link.name)}
-            onMouseLeave={() => setHoveredCategory(link.name)}
-            className="text-gray-800 hover:text-blue-600 transition-colors duration-300 cursor-pointer"
+            onMouseLeave={() => setHoveredCategory(null)}
+            className="text-gray-800 hover:text-blue-600 text-base transition-colors duration-300 cursor-pointer"
           >
-            {link.name}
+            <p>{link.name}</p>
           </div>
         ))}
       </div>

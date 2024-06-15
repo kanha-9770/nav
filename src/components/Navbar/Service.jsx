@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaCogs, FaIndustry, FaToolbox, FaBoxOpen, FaRobot } from "react-icons/fa";
+import {
+  FaCogs,
+  FaIndustry,
+  FaToolbox,
+  FaBoxOpen,
+  FaRobot,
+} from "react-icons/fa";
 import { MdSettings } from "react-icons/md";
 import paperCupMachineImg from "../../Assests/first.webp";
 import machineComponentsImg from "../../Assests/machineComponents.webp";
@@ -17,14 +23,14 @@ const images = {
   "Maintenance Tools": maintenanceToolsImg,
   "Integration Instr.": integrationInstrImg,
   "Packaging Solutions": packagingSolutionsImg,
-  "Automation Options": automationOptionsImg
+  "Automation Options": automationOptionsImg,
 };
 
 const PaperCupMachineServices = () => {
   const [hoveredItem, setHoveredItem] = useState("");
 
   return (
-    <div className="md:h-[65vh] md:w-[80vw] flex flex-wrap justify-between items-start p-4 bg-white p-6 text-sm font-medium mt-18">
+    <div className="md:h-[65vh] md:w-[80vw] flex flex-wrap justify-between items-start bg-white text-sm font-medium mt-auto md:mt-16">
       <div className="w-full md:w-1/2 lg:w-1/3 p-2 ">
         <FeatureCard
           icon={<FaCogs />}
@@ -66,20 +72,25 @@ const PaperCupMachineServices = () => {
         />
       </div>
       <div className="w-full lg:w-1/3 p-2 flex items-center justify-center">
-      <div className="mt-0 border-l border-gray-400 h-[60vh] md:mr-4"></div>
-      <motion.div
+        <div className="mt-0 border-l hidden border-gray-400 h-[60vh] md:mr-4"></div>
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="bg-white rounded-lg overflow-hidden"
+          className=" rounded-lg overflow-hidden"
         >
-          <img src={hoveredItem ? images[hoveredItem] : paperCupMachineImg} alt="Paper Cup Machine" className="w-full h-30" />
+          <img
+            src={hoveredItem ? images[hoveredItem] : paperCupMachineImg}
+            alt="Paper Cup Machine"
+            className="w-full h-30 "
+          />
           <div className="p-4">
             <h3 className="text-base font-semibold	 mb-2">
               Explore our Paper Cup Machines
             </h3>
             <p className="text-gray-700">
-              Discover our range of paper cup machines designed for your production needs.
+              Discover our range of paper cup machines designed for your
+              production needs.
             </p>
           </div>
         </motion.div>

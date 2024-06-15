@@ -4,28 +4,22 @@ import Banners from "./Banners";
 import { links } from "./MyLinks";
 import Services from "./Service";
 import Industries from "./Industries";
-
-const NavLinks = () => {
+const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem }) => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
-  const [hoveredItem, setHoveredItem] = useState(null);
+  const handleMouseEnter = (item) => {
+    setHoveredItem(item);
+  };
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsVisible(true);
     }, 500);
     return () => clearTimeout(timeout);
   }, []);
-
-  const handleMouseEnter = (item) => {
-    setHoveredItem(item);
-  };
-
   const handleMouseLeave = () => {
     setHoveredItem(null);
   };
-
   return (
     <>
       {links.map((link) => (
@@ -41,13 +35,17 @@ const NavLinks = () => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
               }}
             >
-              <p className="border-b-l border-transparent text-lg z-30 hover:border-[#483d73] hover:border-b-2">
+              <p
+                className={`border-b-l border-transparent text-lg z-30 hover:border-[#483d73] hover:border-b-2 ${
+                  !isScrolled && hoveredItem ? "transform -translate-y-10" : ""
+                }`}
+              >
                 {link.name}
               </p>
             </h1>
             {hoveredItem === link.name && (
               <div
-                className="fixed top-0 left-0 w-full h-[80vh] bg-white z-10 flex border-b-4 border-gray-600 justify-center items-center"
+                className={`fixed left-0 w-full top-20 md:top-0 h-[80vh] bg-white z-10 flex border-b-4 border-gray-600 justify-center items-center`}
                 style={{
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateY(0)" : "translateY(-100%)",
@@ -61,7 +59,7 @@ const NavLinks = () => {
                   link.name !== "Home" &&
                   link.name !== "Services" &&
                   link.name !== "Industries" && (
-                    <div className="bg-white w-screen p-5 grid grid-cols-3 gap-10">
+                    <div className="bg-white  w-screen p-5 grid grid-cols-3 gap-10">
                       {link.sublinks.map((mysublinks) => (
                         <div key={mysublinks.Head} className="text-center">
                           <h1 className="text-lg font-semibold">
