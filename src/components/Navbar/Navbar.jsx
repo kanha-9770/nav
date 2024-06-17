@@ -179,13 +179,7 @@
 // // 14/6/2024
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";
-import {
-  FaTwitter,
-  FaFacebook,
-  FaInstagram,
-  FaVimeoV,
-  FaMailchimp,
-} from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaMailchimp } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
