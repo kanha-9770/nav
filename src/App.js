@@ -10,7 +10,9 @@ const App = () => {
     <BrowserRouter>
       <Navbar />
       <div className="mt-40"></div>
-      {/* <SliderComponent/> */}
+      <SliderComponent/>
+      <SliderComponent/>
+      <SliderComponent/>
     </BrowserRouter>
   );
 };

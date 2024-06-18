@@ -224,7 +224,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed top-0  w-full z-50"
+      className="fixed top-0 w-full z-50"
       animate={controls}
       initial={{
         height: "100px",
@@ -232,7 +232,7 @@ const Navbar = () => {
       }}
     >
       <div
-        className={`py-2 hidden bg-gray-100 ${
+        className={`py-2 hidden bg-slate-200  ${
           !isScrolled ? "md:block" : isScrolled ? "hidden" : "block"
         } `}
       >
@@ -240,13 +240,7 @@ const Navbar = () => {
           <div className="w-1/3 text-sm flex items-center">
             <Home />
           </div>
-          <div className="hidden text-gray-700 font-bold md:block">
-            {/* <img
-              className="h-10 w-20"
-              src="https://www.nesscoindia.com/Assets/images/logo.webp"
-              alt="Logo"
-            /> */}
-          </div>
+          <div className="hidden text-gray-700 font-bold md:block"></div>
           <div className="w-1/3 flex justify-end items-center space-x-4">
             <FaMailchimp className="text-gray-700 hover:text-gray-800" />
             <p
@@ -261,19 +255,21 @@ const Navbar = () => {
         </div>
       </div>
       <div className="bg-white">
-        <div className="flex items-center font-medium justify-around py-2 md:py-0">
+        <div className="flex items-center font-medium justify-center py-2 md:py-1">
           <div className="p-5 md:w-auto w-full flex justify-between">
             <span
-              className="z-30 bg:white text-2xl md:text-3xl cursor-pointer md:hidden"
+              className="z-30 bg-white text-2xl md:text-3xl cursor-pointer md:hidden"
               onClick={toggleMenu}
             >
               {open ? <FiX /> : <FiMenu />}
             </span>
           </div>
-          <span className={`w-1/3 z-50 md:flex hidden justify-center`}>
+          <span
+            className={`w-1/4 z-50 md:flex hidden justify-start items-center`}
+          >
             <Link to={"/"}>
               <img
-                className={`h-16 w-30 ${
+                className={`h-12 w-30 ${
                   isScrolled || hoveredItem
                     ? !isScrolled && hoveredItem
                       ? "transform -translate-y-10 block"
@@ -285,7 +281,7 @@ const Navbar = () => {
               />
             </Link>
           </span>
-          <ul className="md:flex hidden uppercase items-center gap-8 font-[Poppins] relative">
+          <ul className="w-3/4 z-40 bg-white md:flex hidden uppercase justify-center items-center gap-8 font-[Poppins] relative">
             <NavLinks
               hoveredItem={hoveredItem}
               setHoveredItem={setHoveredItem}
@@ -314,7 +310,7 @@ const Navbar = () => {
         </div>
         {/* Mobile nav */}
         <div
-          className={`md:hidden fixed  w-full top-0 overflow-y-auto bottom-0 py-20 transition-transform duration-300 transform ${
+          className={`md:hidden fixed bg-white w-full top-20 overflow-y-auto bottom-0 py-20 transition-transform duration-300 transform ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -323,6 +319,8 @@ const Navbar = () => {
               hoveredItem={hoveredItem}
               setHoveredItem={setHoveredItem}
               isScrolled={isScrolled}
+              open={open}
+              setOpen={setOpen}
             />
           </ul>
         </div>
@@ -332,6 +330,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 // Navbar.js
 // import React, { useState, useEffect } from "react";
 // import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";

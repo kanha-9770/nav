@@ -11,13 +11,13 @@ const Home = () => {
     name: "India",
     flag: "https://flagcdn.com/in.svg",
   });
-  useGSAP(()=>{
-    gsap.from('#useGsap',{
-      yoyo:true,
-      x:200,
-      duration:0.5
-    })
-  },[isOpen])
+  useGSAP(() => {
+    gsap.from("#useGsap", {
+      yoyo: true,
+      x: 200,
+      duration: 0.5,
+    });
+  }, [isOpen]);
   const countries = [
     { name: "India", flag: "https://flagcdn.com/in.svg" },
     { name: "United States", flag: "https://flagcdn.com/us.svg" },
@@ -106,7 +106,7 @@ const Home = () => {
       {isOpen && (
         <div
           id="useGsap"
-          className="origin-top-right border-t-4 border-black absolute mt-2 w-80 rounded-md shadow-lg bg-white border border-gray-300 ring-1 ring-black ring-opacity-5"
+          className="origin-top-right border-t-4 absolute mt-2 w-80 rounded-md shadow-lg bg-white border border-gray-300 ring-1 ring-black ring-opacity-5"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"
