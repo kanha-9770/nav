@@ -103,7 +103,7 @@ const FeatureCard = ({ icon, title, description, setHoveredItem }) => {
   return (
     <motion.div
       onHoverStart={() => setHoveredItem(title)}
-      onHoverEnd={() => setHoveredItem("")}
+      onHoverEnd={() => setHoveredItem(title)}
       className="flex hover:bg-[#EBE7F1] items-start p-4 rounded-lg mb-4"
       initial={{ scale: 1 }}
       whileHover={{ scale: 1.05 }}

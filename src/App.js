@@ -10,9 +10,15 @@ const App = () => {
     <BrowserRouter>
       <Navbar />
       <div className="mt-40"></div>
-      <SliderComponent/>
-      <SliderComponent/>
-      <SliderComponent/>
+      {/* <Home/> */}
+      <SliderComponent />
+      <SliderComponent />
+      <SliderComponent />
+      <Hero/>
+      <SliderComponent />
+      <SliderComponent />
+
+      <SliderComponent />
     </BrowserRouter>
   );
 };

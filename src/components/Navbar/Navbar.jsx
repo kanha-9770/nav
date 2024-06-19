@@ -254,7 +254,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white">
+      <div className="border-b-2 border-gray-200 bg-slate-100">
         <div className="flex items-center font-medium justify-center py-2 md:py-1">
           <div className="p-5 md:w-auto w-full flex justify-between">
             <span
@@ -281,7 +281,7 @@ const Navbar = () => {
               />
             </Link>
           </span>
-          <ul className="w-3/4 z-40 bg-white md:flex hidden uppercase justify-center items-center gap-8 font-[Poppins] relative">
+          <ul className="w-3/4 z-40  md:flex hidden uppercase justify-center items-center gap-8 font-[Poppins] relative">
             <NavLinks
               hoveredItem={hoveredItem}
               setHoveredItem={setHoveredItem}

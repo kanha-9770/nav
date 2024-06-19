@@ -1,59 +1,116 @@
-import React from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Arrow1 = () => (
+  <svg width="220" height="43" viewBox="0 0 204 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.481201 10.2571C0.481201 10.2571 92.7812 81.7847 195.481 10.2571" stroke="#C2CBDE" strokeWidth="1.5" strokeDasharray="5 5" />
+    <path d="M180.7 3.47455C180.7 3.47455 199.815 -2.05177 201.637 4.20916C203.459 10.4701 202.093 16.9444 196.176 25.8142" stroke="#C2CBDE" strokeWidth="1.5" strokeDasharray="4 4" />
+  </svg>
+);
+
+const Arrow2 = () => (
+  <svg width="220" height="43" viewBox="0 0 204 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.999756 32.7195C0.999756 32.7195 93.2998 -38.8081 196 32.7195" stroke="#C2CBDE" strokeWidth="1.5" strokeDasharray="5 5" />
+    <path d="M181.219 39.4976C181.219 39.4976 200.334 45.024 202.156 38.763C203.978 32.5019 202.611 26.0275 196.694 17.1575" stroke="#C2CBDE" strokeWidth="1.5" strokeDasharray="4 4" />
+  </svg>
+);
 
 const Hero = () => {
-  return (
-    <div className=" mt-40 py-12">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Hero Us</h2>
-        
-        {/* Hero Form */}
-        <div className="max-w-lg mx-auto  rounded-lg shadow-md p-8 mb-8">
-          <h3 className="text-xl font-semibold mb-4">Send us a message</h3>
-          <form>
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-sm font-semibold mb-2">Name</label>
-              <input type="text" id="name" name="name" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400" />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-semibold mb-2">Email Address</label>
-              <input type="email" id="email" name="email" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400" />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="message" className="block text-sm font-semibold mb-2">Message</label>
-              <textarea id="message" name="message" rows="4" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"></textarea>
-            </div>
-            <button type="submit" className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors">Send Message</button>
-          </form>
-        </div>
+  const stepsRef = useRef([]);
 
-        {/* Hero Info */}
-        <div className="flex flex-wrap justify-center">
-          <div className="flex items-center bg-white rounded-lg shadow-md p-6 mx-4 mb-8">
-            <FaPhone className="text-blue-500 text-xl mr-4" />
-            <div>
-              <h4 className="text-lg font-semibold mb-2">Phone</h4>
-              <p className="text-gray-700">+1234567890</p>
-            </div>
-          </div>
-          <div className="flex items-center bg-white rounded-lg shadow-md p-6 mx-4 mb-8">
-            <FaEnvelope className="text-blue-500 text-xl mr-4" />
-            <div>
-              <h4 className="text-lg font-semibold mb-2">Email</h4>
-              <p className="text-gray-700">info@example.com</p>
-            </div>
-          </div>
-          <div className="flex items-center bg-white rounded-lg shadow-md p-6 mx-4 mb-8">
-            <FaMapMarkerAlt className="text-blue-500 text-xl mr-4" />
-            <div>
-              <h4 className="text-lg font-semibold mb-2">Address</h4>
-              <p className="text-gray-700">123 Street Name, City, Country</p>
-            </div>
-          </div>
+  useEffect(() => {
+    stepsRef.current.forEach((el, index) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+            yoyo:true
+          },
+        }
+      );
+
+      gsap.to(el.querySelector('h3'), {
+        color: gsap.utils.random(['#000000', '#FF0000']),
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none reverse',
+          scrub: true,
+          yoyo:true
+        },
+      });
+    });
+  }, []);
+
+  return (
+    <div className="bg-pink-500 text-white py-12 relative">
+      <div className="text-center mb-8">
+        <h2 className="text-sm uppercase">Whats the function</h2>
+        <h1 className="text-3xl font-bold">Meet the feature of our product</h1>
+      </div>
+      <div className="max-w-full mx-auto relative">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
+          {steps.map((step, index) => (
+            <React.Fragment key={index}>
+              <div
+                className="text-center relative"
+                ref={(el) => (stepsRef.current[index] = el)}
+              >
+                <div className="bg-white text-pink-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  {step.number}
+                </div>
+                <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
+                <p className="text-sm">{step.description}</p>
+                {index < steps.length - 1 && (
+                  <div className="hidden md:flex absolute transform translate-x-full top-20 -translate-y-16">
+                    {index % 2 === 0 ? <Arrow1 /> : <Arrow2 />}
+                  </div>
+                )}
+              </div>
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </div>
   );
 };
+
+const steps = [
+  {
+    number: '01',
+    id:'first',
+    title: 'Set disbursement Instructions',
+    description: 'Get your blood tests delivered at home collect a sample from your blood tests.',
+  },
+  {
+    number: '02',
+    id:'second',
+    title: 'Assembly retrieves funds from your account',
+    description: 'Get your blood tests delivered at home collect a sample from your blood tests.',
+  },
+  {
+    number: '03',
+    title: 'Assembly initiates disbursement',
+    description: 'Get your blood tests delivered at home collect a sample from your blood tests.',
+  },
+  {
+    number: '04',
+    title: 'Customer receives funds payment',
+    description: 'Get your blood tests delivered at home collect a sample from your blood tests.',
+  },
+];
 
 export default Hero;
