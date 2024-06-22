@@ -60,7 +60,7 @@ const CarShowcase = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const filteredCars = cars.filter((car) => car.category === hoveredCategory);
   return (
-    <div className="bg-gray-100  w-screen flex flex-col items-center  font-medium">
+    <div className="bg-white  w-screen flex flex-col items-center  font-medium">
       <div className="w-full max-w-7xl flex flex-col md:flex-row rounded-lg overflow-hidden bg-white">
         <div className="w-full md:w-1/4 p-4 border-r border-gray-300">
           <h2 className="text-xl font-bold mb-4 text-center">SUVs & Cars</h2>

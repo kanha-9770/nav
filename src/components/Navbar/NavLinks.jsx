@@ -14,15 +14,14 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
     setHeading(linkName); // Set the active link on mouse enter
   };
 
-  const handleMouseLeavenew = () => {
-    setHeading(""); // Clear the active link on mouse leave
-  };
+
   const handleMouseEnter = (item) => {
     setHoveredItem(item);
   };
 
   const handleMouseLeave = () => {
     setHoveredItem(null);
+    setHeading(null); // Clear the active link on mouse leave
   };
 
   useEffect(() => {
@@ -41,21 +40,19 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
           className=" text-left md:cursor-pointer group relative"
         >
           <div className="hidden md:flex ">
-            <h6
- className={`z-30 flex justify-center items-center md:pr-0 pr-2 text-xs font-medium ${
-  heading === link.name ? 'text-black bg-white' : 'text-white'
-}`}              onMouseEnter={() => handleMouseEnternew(link.name)}
-              onMouseLeave={handleMouseLeavenew}
+            <h7
+              className={`z-30 flex justify-center items-center md:pr-0 pr-2 text-xs font-normal ${heading === link.name ? 'text-black bg-white rounded-xl' : 'text-white'
+                }`} onMouseEnter={() => handleMouseEnternew(link.name)}
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
               }}
             >
               <p
-                className={`flex item-center justify-center text-base z-30 hover:bg-[rgba(99,99,99,0.4)] rounded-lg`}
+                className={`flex item-center p-1 justify-center text-base z-30 rounded-lg`}
               >
                 {link.name}
               </p>
-            </h6>
+            </h7>
 
             {hoveredItem === link.name && (
               <>
@@ -65,7 +62,7 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
                 >
                   <div
                     id="borderline"
-                    className="absolute  left-0 w-full "
+                    className="absolute bg-white top-0  left-0 w-full "
                   ></div>
 
                   {link.name === "AboutUS" && <Services />}
