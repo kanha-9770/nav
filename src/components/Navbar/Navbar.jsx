@@ -183,6 +183,8 @@ import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import { motion } from "framer-motion";
 import bglogo from "../../Assests/bglogo.png"
+import whitedots from "../../Assests/whitedots.svg"
+import blackdots from "../../Assests/blackdots.svg"
 const ProfilePage = () => {
   return (
     <div className="absolute top-16 right-0 w-64 bg-white text-black p-4 rounded-lg shadow-lg font-Poppins font-semibold z-50">
@@ -268,40 +270,57 @@ const Navbar = () => {
 
   const toggleProfile = () => {
     setProfileOpen(!profileOpen);
-    setHoveredItem(false)
   };
 
   return (
     <motion.nav
-      className="fixed top-2 left-2 right-2 z-50   backdrop-blur-[4px] rounded-lg"
+      className={`fixed top-2 left-2 right-2 z-50  backdrop-blur-[4px] ${hoveredItem ? "rounded-t-lg bg-white" : "rounded-lg"}`}
     >
-      <div className="flex items-center justify-between h-14 px-4 md:px-8">
+      <div className="flex items-center gap-4 justify-between h-14 px-4 md:px-8">
         <span className="text-2xl md:text-3xl cursor-pointer md:hidden" onClick={toggleMenu}>
           {open ? <FiX /> : <FiMenu />}
         </span>
-        <Link to={"/"} className="w-1/4 z-30 md:flex hidden justify-start items-center">
-          <img className="z-30 h-12 w-30" src={bglogo} alt="Logo" />
-        </Link>
-        <ul className="w-2/4 h-10 rounded-lg md:flex hidden uppercase justify-center items-center gap-8 font-[Poppins] relative ">
+        {
+          hoveredItem ? (<Link to={"/"} className="w-1/4 z-30 md:flex hidden justify-start items-center">
+            <img className="z-50 h-12 w-30" src="https://www.nesscoindia.com/Assets/images/logo.webp" alt="Logo" />
+          </Link>) : (<Link to={"/"} className="w-1/4 z-30 md:flex hidden justify-start items-center">
+            <img className="z-30 h-12 w-30" src={bglogo} alt="Logo" />
+          </Link>)
+        }
+        <ul className="w-2/4 h-10 rounded-lg md:flex hidden justify-center items-center gap-1 font-[Poppins] relative ">
           <NavLinks hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} />
         </ul>
-        <span className="w-1/4 md:flex justify-end items-center gap-2">
-          <FiSearch className="text-xl text-white cursor-pointer" />
-          <FiGlobe className="text-xl text-white cursor-pointer" />
-          <svg onClick={toggleProfile} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="h-6 w-6 cursor-pointer">
-            <rect width="256" height="256" fill="none"></rect>
-            <circle cx="60" cy="60" r="12" fill="white"></circle>
-            <circle cx="128" cy="60" r="12" fill="white"></circle>
-            <circle cx="196" cy="60" r="12" fill="white"></circle>
-            <circle cx="60" cy="128" r="12" fill="white"></circle>
-            <circle cx="128" cy="128" r="12" fill="white"></circle>
-            <circle cx="196" cy="128" r="12" fill="white"></circle>
-            <circle cx="60" cy="196" r="12" fill="white"></circle>
-            <circle cx="128" cy="196" r="12" fill="white"></circle>
-            <circle cx="196" cy="196" r="12" fill="white"></circle>
-          </svg>
-          <span className="text-white">Contact</span>
+        <span className={`w-1/4 md:flex  justify-end items-center gap-4 ${hoveredItem ? "text-black" : "text-white"}`}>
+          <FiSearch className="text-xl cursor-pointer" />
+          <FiGlobe className="text-xl cursor-pointer" />
+          {
+            hoveredItem ? (<svg onClick={toggleProfile} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="h-6 w-6 cursor-pointer">
+              <rect width="256" height="256" fill="none"></rect>
+              <circle cx="60" cy="60" r="12" fill="black"></circle>
+              <circle cx="128" cy="60" r="12" fill="black"></circle>
+              <circle cx="196" cy="60" r="12" fill="black"></circle>
+              <circle cx="60" cy="128" r="12" fill="black"></circle>
+              <circle cx="128" cy="128" r="12" fill="black"></circle>
+              <circle cx="196" cy="128" r="12" fill="black"></circle>
+              <circle cx="60" cy="196" r="12" fill="black"></circle>
+              <circle cx="128" cy="196" r="12" fill="black"></circle>
+              <circle cx="196" cy="196" r="12" fill="black"></circle>
+            </svg>) : (<svg onClick={toggleProfile} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="h-6 w-6 cursor-pointer">
+              <rect width="256" height="256" fill="none"></rect>
+              <circle cx="60" cy="60" r="12" fill="white"></circle>
+              <circle cx="128" cy="60" r="12" fill="white"></circle>
+              <circle cx="196" cy="60" r="12" fill="white"></circle>
+              <circle cx="60" cy="128" r="12" fill="white"></circle>
+              <circle cx="128" cy="128" r="12" fill="white"></circle>
+              <circle cx="196" cy="128" r="12" fill="white"></circle>
+              <circle cx="60" cy="196" r="12" fill="white"></circle>
+              <circle cx="128" cy="196" r="12" fill="white"></circle>
+              <circle cx="196" cy="196" r="12" fill="white"></circle>
+            </svg>)
+          }
         </span>
+        <span className={` rounded-full p-1 pl-4 pr-4 ${hoveredItem ? "bg-black text-white" : "text-black bg-white"}`}>Contact</span>
+
       </div>
       {profileOpen && <ProfilePage />}
       {/* Mobile nav */}

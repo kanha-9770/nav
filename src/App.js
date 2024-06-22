@@ -12,6 +12,7 @@ const App = () => {
       <Navbar />
       {/* <div className="mt-40"></div> */}
       <Home/>
+      {/* <SliderComponent/> */}
       <ContactIcons/>
     </BrowserRouter>
   );

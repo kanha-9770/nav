@@ -11,9 +11,8 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
   const [subHeading, setSubHeading] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const handleMouseEnternew = (linkName) => {
-    setHeading(linkName); // Set the active link on mouse enter
+    setHeading(linkName);
   };
-
 
   const handleMouseEnter = (item) => {
     setHoveredItem(item);
@@ -41,14 +40,16 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
         >
           <div className="hidden md:flex ">
             <h7
-              className={`z-30 flex justify-center items-center md:pr-0 pr-2 text-xs font-normal ${heading === link.name ? 'text-black bg-white rounded-xl' : 'text-white'
-                }`} onMouseEnter={() => handleMouseEnternew(link.name)}
+              className={`z-30 flex justify-center items-center md:pr-0 pr-0 text-xs font-normal `}
+              onMouseEnter={() => handleMouseEnternew(link.name)}
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
               }}
             >
               <p
-                className={`flex item-center p-1 justify-center text-base z-30 rounded-lg`}
+                className={`flex item-center p-1 font-midium pl-4 pr-4 justify-center ${hoveredItem ? heading === link.name
+                  ? "bg-black text-white rounded-full"
+                  : "text-black" : "text-white"} text-base z-30 rounded-full`}
               >
                 {link.name}
               </p>
@@ -57,7 +58,7 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
             {hoveredItem === link.name && (
               <>
                 <div
-                  className={`fixed left-0 opacity-80 shadow-lg bg-white w-full top-20 md:top-16 h-auto md:h-[70vh] z-10 flex border-b-4 border-gray-600 justify-center items-center`}
+                  className={`fixed left-0  shadow-lg bg-white w-full rounded-b-xl  h-auto md:h-[65vh] z-10 top-14 flex justify-center items-center `}
                   onMouseLeave={handleMouseLeave}
                 >
                   <div
@@ -156,9 +157,8 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
         </div>
       ))}
 
-      {hoveredItem && (
-        <div className="md:fixed md:top-[80vh] md:left-0 w-full md:h-[20vh] bg-white bg-opacity-0 backdrop-blur-md border-b-4 border-gray-600"></div>
-      )}
+
+
     </>
   );
 };

@@ -49,7 +49,7 @@
 //             className="h-full w-8 mr-1 rounded-full border-2 "
 //           />
 //           {selectedCountry.name}
-       
+
 //         </button>
 //         <button
 //           type="button"
@@ -161,14 +161,14 @@ const Home = () => {
     <section
       className="relative h-screen w-screen overflow-hidden z-[-1] bg-cover bg-center "
     >
-       <video
+      <video
         autoPlay
         loop
         muted
+        playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="bg.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
+        <source src="bg.mp4" type="video/mp4" /> <source src="bg.webm" type="video/webm" /> <source src="bg.ogv" type="video/ogg" />
       </video>
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 flex flex-col items-start justify-center h-full text-center text-white px-10">
