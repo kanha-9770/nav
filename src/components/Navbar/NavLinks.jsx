@@ -10,13 +10,13 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [isVisible, setIsVisible] = useState(false);
-  // useGSAP(() => {
-  //   gsap.to("#borderline", {
-  //     yoyo: true,
-  //     x: 100,
-  //     duration: 0.5,
-  //   });
-  // },[hoveredItem,isScrolled]);
+  const handleMouseEnternew = (linkName) => {
+    setHeading(linkName); // Set the active link on mouse enter
+  };
+
+  const handleMouseLeavenew = () => {
+    setHeading(""); // Clear the active link on mouse leave
+  };
   const handleMouseEnter = (item) => {
     setHoveredItem(item);
   };
@@ -38,43 +38,44 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
         <div
           key={link.name}
           onMouseEnter={() => handleMouseEnter(link.name)}
-          onMouseLeave={handleMouseLeave}
-          className="px-3 text-left md:cursor-pointer group relative"
+          className=" text-left md:cursor-pointer group relative"
         >
           <div className="hidden md:flex ">
-            <h1
-              className="py-3 z-30 text-black flex justify-center items-center md:pr-0 pr-5  text-sm font-medium"
+            <h6
+ className={`z-30 flex justify-center items-center md:pr-0 pr-2 text-xs font-medium ${
+  heading === link.name ? 'text-black bg-white' : 'text-white'
+}`}              onMouseEnter={() => handleMouseEnternew(link.name)}
+              onMouseLeave={handleMouseLeavenew}
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
               }}
             >
               <p
-                className={`border-b-l border-transparent text-lg z-30 hover:border-[#483d73] hover:border-b-2 ${
-                  !isScrolled && hoveredItem ? "transform -translate-y-10" : ""
-                }`}
+                className={`flex item-center justify-center text-base z-30 hover:bg-[rgba(99,99,99,0.4)] rounded-lg`}
               >
                 {link.name}
               </p>
-            </h1>
+            </h6>
 
             {hoveredItem === link.name && (
               <>
                 <div
-                  className={`fixed left-0 bg-white w-full top-20 md:top-0 h-auto md:h-[80vh] z-10 flex border-b-4 border-gray-600 justify-center items-center`}
+                  className={`fixed left-0 opacity-80 shadow-lg bg-white w-full top-20 md:top-16 h-auto md:h-[70vh] z-10 flex border-b-4 border-gray-600 justify-center items-center`}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div
                     id="borderline"
-                    className="absolute top-0 left-0 w-full h-[10vh] border-b-2 border-gray-200 bg-slate-100"
+                    className="absolute  left-0 w-full "
                   ></div>
 
-                  {link.name === "Home" && <Banners />}
-                  {link.name === "Services" && <Services />}
+                  {link.name === "AboutUS" && <Services />}
+                  {link.name === "Products" && <Banners />}
                   {link.name === "Industries" && <Industries />}
                   {link.submenu &&
-                    link.name !== "Home" &&
-                    link.name !== "Services" &&
+                    link.name !== "AboutUS" &&
+                    link.name !== "Products" &&
                     link.name !== "Industries" && (
-                      <div className="bg-white w-full p-5 grid grid-cols-1 md:grid-cols-3 gap-10">
+                      <div className="bg-white shadow-lg w-full p-5 grid grid-cols-1 md:grid-cols-3 gap-10">
                         {link.sublinks.map((mysublinks) => (
                           <div key={mysublinks.Head} className="text-center">
                             <h1 className="text-lg font-semibold">
@@ -119,11 +120,11 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
               </div>
               {heading === link.name && (
                 <div className="pl-4 pb-2">
-                  {link.name === "Home" && <Banners />}
+                  {link.name === "AboutUS" && <Banners />}
                   {link.name === "Services" && <Services />}
                   {link.name === "Industries" && <Industries />}
                   {link.submenu &&
-                    link.name !== "Home" &&
+                    link.name !== "AboutUS" &&
                     link.name !== "Services" &&
                     link.name !== "Industries" && (
                       <div>

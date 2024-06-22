@@ -1,28 +1,28 @@
 export const links = [
   {
-    name: "Home",
+    name: "AboutUS",
     submenu: false,
     sublinks: []
   },
   {
-    name: "Services",
+    name: "Products",
     submenu: false,
     sublinks: [
     ],
   },
   {
-    name: "Industries",
+    name: "Application",
     submenu: false,
     sublinks: [
     ],
   },
   {
-    name: "Insight",
+    name: "Solutions",
     submenu: false,
     sublinks: [],
   },
   {
-    name: "Investor",
+    name: "Our Stores",
     submenu: false,
     sublinks: [],
   },

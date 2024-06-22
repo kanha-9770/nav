@@ -5,20 +5,14 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Navbar/Hero";
 import Home from "./components/Home/Home";
 import SliderComponent from "./components/SliderComponent";
+import ContactIcons from "./components/Contact/ContactIcons";
 const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="mt-40"></div>
-      {/* <Home/> */}
-      <SliderComponent />
-      <SliderComponent />
-      <SliderComponent />
-      <Hero/>
-      <SliderComponent />
-      <SliderComponent />
-
-      <SliderComponent />
+      {/* <div className="mt-40"></div> */}
+      <Home/>
+      <ContactIcons/>
     </BrowserRouter>
   );
 };
