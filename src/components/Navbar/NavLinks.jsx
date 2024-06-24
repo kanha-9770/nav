@@ -40,16 +40,20 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
         >
           <div className="hidden md:flex ">
             <h7
-              className={`z-30 flex justify-center items-center md:pr-0 pr-0 text-xs font-normal `}
+              className={`z-30 flex justify-center items-center md:pr-2 pr-2 text-xs font-normal `}
               onMouseEnter={() => handleMouseEnternew(link.name)}
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
               }}
             >
               <p
-                className={`flex item-center p-1 font-midium pl-4 pr-4 justify-center ${hoveredItem ? heading === link.name
-                  ? "bg-black text-white rounded-full"
-                  : "text-black" : "text-white"} text-base z-30 rounded-full`}
+                className={`flex item-center p-1 font-midium pl-2 pr-2 justify-center ${
+                  hoveredItem
+                    ? heading === link.name
+                      ? "bg-black text-white rounded-full"
+                      : "text-black"
+                    : "text-white"
+                } text-base z-30 rounded-full`}
               >
                 {link.name}
               </p>
@@ -66,11 +70,11 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
                     className="absolute bg-white top-0  left-0 w-full "
                   ></div>
 
-                  {link.name === "AboutUS" && <Services />}
+                  {link.comp === "AboutUs" && <Services />}
                   {link.name === "Products" && <Banners />}
                   {link.name === "Industries" && <Industries />}
                   {link.submenu &&
-                    link.name !== "AboutUS" &&
+                    link.comp !== "AboutUs" &&
                     link.name !== "Products" &&
                     link.name !== "Industries" && (
                       <div className="bg-white shadow-lg w-full p-5 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -118,12 +122,12 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
               </div>
               {heading === link.name && (
                 <div className="pl-4 pb-2">
-                  {link.name === "AboutUS" && <Banners />}
-                  {link.name === "Services" && <Services />}
+                  {link.comp === "AboutUs" && <Services />}
+                  {link.name === "Products" && <Banners />}
                   {link.name === "Industries" && <Industries />}
                   {link.submenu &&
-                    link.name !== "AboutUS" &&
-                    link.name !== "Services" &&
+                    link.comp !== "AboutUs" &&
+                    link.name !== "Products" &&
                     link.name !== "Industries" && (
                       <div>
                         {link.sublinks.map((mysublinks) => (
@@ -156,9 +160,6 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
           )}
         </div>
       ))}
-
-
-
     </>
   );
 };

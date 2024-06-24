@@ -30,7 +30,7 @@ const PaperCupMachineServices = () => {
   const [hoveredItem, setHoveredItem] = useState("");
 
   return (
-    <div className="md:h-[65vh] md:w-[80vw] flex flex-wrap justify-between items-start text-sm font-medium mt-auto md:mt-20">
+    <div className="md:h-[80vh] md:w-[80vw] flex flex-wrap justify-between items-start text-sm font-medium mt-auto md:mt-20">
       <div className="w-full md:w-1/2 lg:w-1/3 p-2 ">
         <FeatureCard
           icon={<FaCogs />}

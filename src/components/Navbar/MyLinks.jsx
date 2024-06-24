@@ -1,6 +1,7 @@
 export const links = [
   {
-    name: "AboutUS",
+    name: "About Us",
+    comp:"AboutUs",
     submenu: false,
     sublinks: []
   },
@@ -22,7 +23,7 @@ export const links = [
     sublinks: [],
   },
   {
-    name: "Our Stores",
+    name: "Mediaroom",
     submenu: false,
     sublinks: [],
   },

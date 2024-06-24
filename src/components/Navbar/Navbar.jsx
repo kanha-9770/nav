@@ -182,75 +182,131 @@ import { FiMenu, FiX, FiSearch, FiGlobe } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import { motion } from "framer-motion";
-import bglogo from "../../Assests/bglogo.png"
-import whitedots from "../../Assests/whitedots.svg"
-import blackdots from "../../Assests/blackdots.svg"
+import bglogo from "../../Assests/bglogo.png";
+import { RxAvatar } from "react-icons/rx";
 const ProfilePage = () => {
   return (
     <div className="absolute top-16 right-0 w-64 bg-white text-black p-4 rounded-lg shadow-lg font-Poppins font-semibold z-50">
       <div className="grid grid-cols-3 gap-2">
         <div className="flex flex-col items-center">
-          <img src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png" alt="Account" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Account</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg" alt="Search" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg"
+            alt="Search"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Search</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s" alt="Business" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s"
+            alt="Business"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Business</span>
         </div>
+      
         <div className="flex flex-col items-center">
-          <img src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg" alt="Account" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Account</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png" alt="Account" className="w-8 h-8 rounded-full" />
-          <span>Account</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <img src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg" alt="Search" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg"
+            alt="Search"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Search</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s" alt="Business" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s"
+            alt="Business"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Business</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg" alt="Account" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Account</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png" alt="Account" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Account</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg" alt="Search" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg"
+            alt="Search"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Search</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s" alt="Business" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s"
+            alt="Business"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Business</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg" alt="Account" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Account</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png" alt="Account" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Account</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg" alt="Search" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg"
+            alt="Search"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Search</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s" alt="Business" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s"
+            alt="Business"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Business</span>
         </div>
         <div className="flex flex-col items-center">
-          <img src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg" alt="Account" className="w-8 h-8 rounded-full" />
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
           <span>Account</span>
         </div>
         {/* Add more icons similarly */}
@@ -274,27 +330,53 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed top-2 left-2 right-2 z-50  backdrop-blur-[4px] ${hoveredItem ? "rounded-t-lg bg-white" : "rounded-lg"}`}
+      className={`fixed top-2 left-2 right-2 z-50  backdrop-blur-[4px] ${
+        hoveredItem ? "rounded-t-lg bg-white" : "rounded-lg"
+      }`}
     >
       <div className="flex items-center gap-4 justify-between h-14 px-4 md:px-8">
-        <span className="text-2xl md:text-3xl cursor-pointer md:hidden" onClick={toggleMenu}>
+        <span
+          className="text-2xl md:text-3xl cursor-pointer md:hidden"
+          onClick={toggleMenu}
+        >
           {open ? <FiX /> : <FiMenu />}
         </span>
-        {
-          hoveredItem ? (<Link to={"/"} className="w-1/4 z-30 md:flex hidden justify-start items-center">
-            <img className="z-50 h-12 w-30" src="https://www.nesscoindia.com/Assets/images/logo.webp" alt="Logo" />
-          </Link>) : (<Link to={"/"} className="w-1/4 z-30 md:flex hidden justify-start items-center">
+        {hoveredItem ? (
+          <Link
+            to={"/"}
+            className="w-1/4 z-30 md:flex hidden justify-start items-center"
+          >
+            <img
+              className="z-50 h-12 w-30"
+              src="https://www.nesscoindia.com/Assets/images/logo.webp"
+              alt="Logo"
+            />
+          </Link>
+        ) : (
+          <Link
+            to={"/"}
+            className="w-1/4  z-30 md:flex hidden justify-start items-center"
+          >
             <img className="z-30 h-12 w-30" src={bglogo} alt="Logo" />
-          </Link>)
-        }
-        <ul className="w-2/4 h-10 rounded-lg md:flex hidden justify-center items-center gap-1 font-[Poppins] relative ">
+          </Link>
+        )}
+        <ul className="w-2/4  h-10 rounded-lg md:flex hidden justify-center items-center gap-0 font-[Poppins] relative ">
           <NavLinks hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} />
         </ul>
-        <span className={`w-1/4 md:flex  justify-end items-center gap-4 ${hoveredItem ? "text-black" : "text-white"}`}>
+        <span
+          className={`w-[25%] md:flex  justify-end items-center gap-3 ${
+            hoveredItem ? "text-black" : "text-white"
+          }`}
+        >
           <FiSearch className="text-xl cursor-pointer" />
           <FiGlobe className="text-xl cursor-pointer" />
-          {
-            hoveredItem ? (<svg onClick={toggleProfile} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="h-6 w-6 cursor-pointer">
+          {hoveredItem ? (
+            <svg
+              onClick={toggleProfile}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 256"
+              className="h-6 w-6 cursor-pointer"
+            >
               <rect width="256" height="256" fill="none"></rect>
               <circle cx="60" cy="60" r="12" fill="black"></circle>
               <circle cx="128" cy="60" r="12" fill="black"></circle>
@@ -305,7 +387,14 @@ const Navbar = () => {
               <circle cx="60" cy="196" r="12" fill="black"></circle>
               <circle cx="128" cy="196" r="12" fill="black"></circle>
               <circle cx="196" cy="196" r="12" fill="black"></circle>
-            </svg>) : (<svg onClick={toggleProfile} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="h-6 w-6 cursor-pointer">
+            </svg>
+          ) : (
+            <svg
+              onClick={toggleProfile}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 256"
+              className="h-6 w-6 cursor-pointer"
+            >
               <rect width="256" height="256" fill="none"></rect>
               <circle cx="60" cy="60" r="12" fill="white"></circle>
               <circle cx="128" cy="60" r="12" fill="white"></circle>
@@ -316,17 +405,31 @@ const Navbar = () => {
               <circle cx="60" cy="196" r="12" fill="white"></circle>
               <circle cx="128" cy="196" r="12" fill="white"></circle>
               <circle cx="196" cy="196" r="12" fill="white"></circle>
-            </svg>)
-          }
+            </svg>
+          )}
+          <span
+            className={` rounded-full p-1 pl-4 pr-4 ${
+              hoveredItem ? "bg-black text-white" : "text-black bg-white"
+            }`}
+          >
+            <RxAvatar />
+          </span>
         </span>
-        <span className={` rounded-full p-1 pl-4 pr-4 ${hoveredItem ? "bg-black text-white" : "text-black bg-white"}`}>Contact</span>
-
       </div>
       {profileOpen && <ProfilePage />}
       {/* Mobile nav */}
-      <div className={`md:hidden fixed bg-white w-full top-20 overflow-y-auto bottom-0 py-20 transition-transform duration-300 transform ${open ? "translate-x-0" : "translate-x-full"}`}>
+      <div
+        className={`md:hidden fixed bg-white w-full top-20 overflow-y-auto bottom-0 py-20 transition-transform duration-300 transform ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
         <ul className="bg-white border-t-4 border-black h-screen text-center">
-          <NavLinks hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} open={open} setOpen={setOpen} />
+          <NavLinks
+            hoveredItem={hoveredItem}
+            setHoveredItem={setHoveredItem}
+            open={open}
+            setOpen={setOpen}
+          />
         </ul>
       </div>
     </motion.nav>
