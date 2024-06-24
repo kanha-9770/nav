@@ -344,7 +344,6 @@
 // export default Home;
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-import heroImage from "../../Assests/industrialGrade.webp"; // Use the correct path for your hero image
 import paperCupMachine1 from "../../Assests/first.webp"; // Use the correct path for your image
 import paperCupMachine2 from "../../Assests/first.webp"; // Use the correct path for your image
 import flexoPrintingMachine from "../../Assests/logo.png"; // Use the correct path for your image
@@ -432,7 +431,7 @@ const Home = () => {
     return () => clearInterval(intervalId);
   }, []);
   return (
-    <section className="relative h-screen w-screen overflow-hidden bg-green-500 bg-cover bg-center text-white font-sans">
+    <section className="relative h-screen w-screen overflow-hidden bg-transparent bg-cover bg-center text-white font-sans">
       <video
         id="background-video"
         autoPlay
@@ -486,10 +485,10 @@ const Home = () => {
                     <img
                       src={machine.src}
                       alt={machine.alt}
-                      className="h-32 w-full object-cover"
+                      className="h-28 w-full  object-cover"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 h-3/4 bg-white bg-opacity-5 flex items-end justify-center">
-                      <span className="text-white text-xs md:text-xs font-medium p-2">
+                    <div className="bottom-0 left-0 right-0 h-3/4 bg-gradient-to-b from-transparent to-black flex items-end justify-center">
+                      <span className="text-white  text-xs md:text-xs font-medium p-2">
                         {machine.label}
                       </span>
                     </div>
@@ -500,16 +499,16 @@ const Home = () => {
             {machines.map((machine, index) => (
               <div
                 key={index + machines.length}
-                className="flex-shrink-0 w-1/5 px-4"
+                className="flex-shrink-0  px-4"
               >
                 <div className="relative flex flex-col overflow-hidden transform transition-transform duration-500 hover:scale-110">
                   <div className="relative">
                     <img
                       src={machine.src}
                       alt={machine.alt}
-                      className="h-32 w-full object-cover"
+                      className="h-28 w-full object-cover"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 h-3/4 bg-white bg-opacity-5 flex items-end justify-center">
+                    <div className=" bottom-0 left-0 right-0 h-full bg-gradient-to-b from-transparent to-black flex items-end justify-center">
                       <span className="text-white text-xs md:text-xs font-medium p-2">
                         {machine.label}
                       </span>

@@ -184,6 +184,7 @@ import NavLinks from "./NavLinks";
 import { motion } from "framer-motion";
 import bglogo from "../../Assests/bglogo.png";
 import { RxAvatar } from "react-icons/rx";
+import ContactForm from "../Contact/ContactForm";
 const ProfilePage = () => {
   return (
     <div className="absolute top-16 right-0 w-64 bg-white text-black p-4 rounded-lg shadow-lg font-Poppins font-semibold z-50">
@@ -212,7 +213,7 @@ const ProfilePage = () => {
           />
           <span>Business</span>
         </div>
-      
+
         <div className="flex flex-col items-center">
           <img
             src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png"
@@ -319,6 +320,11 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [isContactFormVisible, setContactFormVisible] = useState(false);
+
+  const toggleContactForm = () => {
+    setContactFormVisible(!isContactFormVisible);
+  };
 
   const toggleMenu = () => {
     setOpen(!open);
@@ -330,9 +336,8 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed top-2 left-2 right-2 z-50  backdrop-blur-[4px] ${
-        hoveredItem ? "rounded-t-lg bg-white" : "rounded-lg"
-      }`}
+      className={`fixed top-2 left-2 right-2 z-50  backdrop-blur-[4px] ${hoveredItem ? "rounded-t-lg bg-white" : "rounded-lg"
+        }`}
     >
       <div className="flex items-center gap-4 justify-between h-14 px-4 md:px-8">
         <span
@@ -364,9 +369,8 @@ const Navbar = () => {
           <NavLinks hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} />
         </ul>
         <span
-          className={`w-[25%] md:flex  justify-end items-center gap-3 ${
-            hoveredItem ? "text-black" : "text-white"
-          }`}
+          className={`w-[25%] md:flex  justify-end items-center gap-3 ${hoveredItem ? "text-black" : "text-white"
+            }`}
         >
           <FiSearch className="text-xl cursor-pointer" />
           <FiGlobe className="text-xl cursor-pointer" />
@@ -408,20 +412,25 @@ const Navbar = () => {
             </svg>
           )}
           <span
-            className={` rounded-full p-1 pl-4 pr-4 ${
-              hoveredItem ? "bg-black text-white" : "text-black bg-white"
-            }`}
+            className={` rounded-full p-1 pl-4 pr-4 ${hoveredItem ? "bg-black text-white" : "text-black bg-white"
+              }`}
+            onClick={toggleContactForm}
           >
-            <RxAvatar />
+            Contact
           </span>
         </span>
+        {isContactFormVisible && (
+          <ContactForm
+            isVisible={isContactFormVisible}
+            onClose={toggleContactForm}
+          />
+        )}
       </div>
       {profileOpen && <ProfilePage />}
       {/* Mobile nav */}
       <div
-        className={`md:hidden fixed bg-white w-full top-20 overflow-y-auto bottom-0 py-20 transition-transform duration-300 transform ${
-          open ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`md:hidden fixed bg-white w-full top-20 overflow-y-auto bottom-0 py-20 transition-transform duration-300 transform ${open ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <ul className="bg-white border-t-4 border-black h-screen text-center">
           <NavLinks
