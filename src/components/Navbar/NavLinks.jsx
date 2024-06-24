@@ -47,13 +47,12 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
               }}
             >
               <p
-                className={`flex item-center p-1 font-midium pl-2 pr-2 justify-center ${
-                  hoveredItem
+                className={`flex item-center p-1 font-midium pl-2 pr-2 justify-center ${hoveredItem
                     ? heading === link.name
                       ? "bg-black text-white rounded-full"
                       : "text-black"
                     : "text-white"
-                } text-base z-30 rounded-full`}
+                  } text-base z-30 rounded-full`}
               >
                 {link.name}
               </p>

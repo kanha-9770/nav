@@ -18,7 +18,7 @@ const ContactForm = ({ isVisible, onClose }) => {
 
   return (
     <div
-      className={`fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-end items-start pt-20 pr-0 transition-transform transform ${
+      className={`fixed inset-0 bg-opacity-50 flex justify-end items-start pt-20 pr-0 transition-transform transform ${
         isVisible ? 'block' : 'hidden'
       }`}
       style={{ transitionDuration: '0.5s' }}
@@ -41,7 +41,7 @@ const ContactForm = ({ isVisible, onClose }) => {
             className="w-full p-2 border border-gray-300 rounded"
           />
           <input
-            type="text"
+            type="phone"
             placeholder="Company"
             className="w-full p-2 border border-gray-300 rounded"
           />

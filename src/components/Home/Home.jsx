@@ -351,7 +351,7 @@ import paperCupMachine3 from "../../Assests/first.webp"; // Use the correct path
 import dieCuttingMachine from "../../Assests/first.webp"; // Use the correct path for your image
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
 import "./styles.css";
-
+import mainbg from "../../Assests/mainbg.webp"
 const machines = [
   {
     src: paperCupMachine1,
@@ -364,7 +364,7 @@ const machines = [
     label: "Paper Cup Machine",
   },
   {
-    src: flexoPrintingMachine,
+    src: paperCupMachine2,
     alt: "Flexo Printing Machine",
     label: "Flexo Printing Machine",
   },
@@ -438,7 +438,7 @@ const Home = () => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute brightness-90	 inset-0 w-full h-full object-cover z-0"
         onCanPlay={() => setIsVideoPlaying(true)}
       >
         <source src="bg.mp4" type="video/mp4" />
@@ -450,21 +450,19 @@ const Home = () => {
           className="absolute inset-0 flex items-center justify-center z-10 bg-black bg-opacity-75"
           onClick={handleVideoPlay}
         >
-          <button className="px-8 py-4 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition duration-300 font-bold text-xl">
-            Play Video
-          </button>
+
         </div>
       )}
       <div className="absolute inset-0 bg-black opacity-75"></div>
-      <div className="relative z-10 flex flex-col items-start justify-center h-full px-10 md:px-20">
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">
+      <div className="relative z-10 flex flex-col items-start justify-center h-full px-10 md:px-10">
+        <h1 className="text-4xl md:text-5xl font-normal leading-tight mb-4">
           <span>Paper </span>
           <span className="flip-animate">
             <span data-hover="Cup Machine">Cup Machine</span>
           </span>
         </h1>
-        <p className="text-2xl md:text-3xl italic mb-8">Manufacturing</p>
-        <button className="p-1 pl-4 pr-4 text-black bg-white rounded-md shadow-lg transition duration-300 font-bold text-base">
+        <p className="text-2xl md:text-4xl font-bold italic mb-8 tracking-wide">Manufacturing</p>
+        <button className="p-1 pl-6 pr-6 text-black bg-white rounded-md shadow-lg transition duration-300 font-bold text-base">
           Book Now
         </button>
       </div>
@@ -479,16 +477,17 @@ const Home = () => {
             ref={carouselRef}
           >
             {machines.map((machine, index) => (
-              <div key={index} className="flex-shrink-0 w-1/5 px-4">
-                <div className="relative flex flex-col overflow-hidden transform transition-transform duration-500 hover:scale-110">
+              <div key={index} className="flex-shrink-0 w-1/5 px-2">
+                <div className="relative top-6 flex flex-col overflow-hidden transform transition-transform duration-500 hover:scale-110">
                   <div className="relative">
                     <img
                       src={machine.src}
                       alt={machine.alt}
-                      className="h-28 w-full  object-cover"
+                      className="h-32 w-full object-cover"
                     />
-                    <div className="bottom-0 left-0 right-0 h-3/4 bg-gradient-to-b from-transparent to-black flex items-end justify-center">
-                      <span className="text-white  text-xs md:text-xs font-medium p-2">
+                    <br />
+                    <div className="absolute bottom-0 left-0  top-12 right-0 h-3/5 bg-white bg-opacity-5 flex items-end justify-center">
+                      <span className="text-white text-xs md:text-xs font-medium p-4">
                         {machine.label}
                       </span>
                     </div>
@@ -499,17 +498,18 @@ const Home = () => {
             {machines.map((machine, index) => (
               <div
                 key={index + machines.length}
-                className="flex-shrink-0  px-4"
+                className="flex-shrink-0 w-1/5 px-2"
               >
-                <div className="relative flex flex-col overflow-hidden transform transition-transform duration-500 hover:scale-110">
+                <div className="relative top-6 flex flex-col overflow-hidden transform transition-transform duration-500 hover:scale-110">
                   <div className="relative">
                     <img
                       src={machine.src}
                       alt={machine.alt}
-                      className="h-28 w-full object-cover"
+                      className="h-32 w-full object-cover"
                     />
-                    <div className=" bottom-0 left-0 right-0 h-full bg-gradient-to-b from-transparent to-black flex items-end justify-center">
-                      <span className="text-white text-xs md:text-xs font-medium p-2">
+                    <br></br>
+                    <div className="absolute bottom-0 left-0 top-12 right-0 h-3/5 bg-white bg-opacity-5 flex items-end justify-center">
+                      <span className="text-white text-xs md:text-xs font-medium p-4">
                         {machine.label}
                       </span>
                     </div>
@@ -520,9 +520,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="absolute font-bold text-4xl rounded-full border-2 border-white p-2 mr-4 mb-4 bottom-0 right-0 bg-black bg-opacity-50 backdrop-blur-sm transform hover:scale-110 transition duration-300">
+      {/* here our chat bot icon goes */}
+      {/* <div className="absolute font-bold text-4xl rounded-full border-2 border-white p-2 mr-4 mb-4 bottom-0 right-0 bg-black bg-opacity-50 backdrop-blur-sm transform hover:scale-110 transition duration-300">
         <IoChatboxEllipsesOutline />
-      </div>
+      </div> */}
     </section>
   );
 };

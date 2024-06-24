@@ -178,13 +178,15 @@
 
 // // 14/6/2024
 import React, { useState } from "react";
-import { FiMenu, FiX, FiSearch, FiGlobe } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
+import { ImSearch } from "react-icons/im";
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import { motion } from "framer-motion";
 import bglogo from "../../Assests/bglogo.png";
-import { RxAvatar } from "react-icons/rx";
 import ContactForm from "../Contact/ContactForm";
+import { MdOutlineAccountCircle } from "react-icons/md";
+
 const ProfilePage = () => {
   return (
     <div className="absolute top-16 right-0 w-64 bg-white text-black p-4 rounded-lg shadow-lg font-Poppins font-semibold z-50">
@@ -334,10 +336,17 @@ const Navbar = () => {
     setProfileOpen(!profileOpen);
   };
 
+  const iconStyle = {
+    strokeWidth: "1", // Adjust thickness here
+    stroke: "black", // Example stroke color
+    cursor: "pointer",
+  };
+
   return (
     <motion.nav
-      className={`fixed top-2 left-2 right-2 z-50  backdrop-blur-[4px] ${hoveredItem ? "rounded-t-lg bg-white" : "rounded-lg"
-        }`}
+      className={`fixed top-2 left-2 right-2 z-50 backdrop-blur-[4px] ${
+        hoveredItem ? "rounded-t-lg bg-white" : "rounded-lg"
+      }`}
     >
       <div className="flex items-center gap-4 justify-between h-14 px-4 md:px-8">
         <span
@@ -346,74 +355,112 @@ const Navbar = () => {
         >
           {open ? <FiX /> : <FiMenu />}
         </span>
-        {hoveredItem ? (
-          <Link
-            to={"/"}
-            className="w-1/4 z-30 md:flex hidden justify-start items-center"
-          >
-            <img
-              className="z-50 h-12 w-30"
-              src="https://www.nesscoindia.com/Assets/images/logo.webp"
-              alt="Logo"
-            />
-          </Link>
-        ) : (
-          <Link
-            to={"/"}
-            className="w-1/4  z-30 md:flex hidden justify-start items-center"
-          >
-            <img className="z-30 h-12 w-30" src={bglogo} alt="Logo" />
-          </Link>
-        )}
-        <ul className="w-2/4  h-10 rounded-lg md:flex hidden justify-center items-center gap-0 font-[Poppins] relative ">
+        <Link
+          to={"/"}
+          className="w-1/4 z-30 md:flex hidden justify-start items-center"
+        >
+          <img
+            className={`z-30 ${hoveredItem ? "h-6" : "h-6"} w-18`}
+            src={
+              hoveredItem
+                ? "https://www.nesscoindia.com/Assets/images/logo.webp"
+                : bglogo
+            }
+            alt="Logo"
+            style={{ fontFamily: "Poppins, sans-serif" }} // Apply Poppins font here
+          />
+        </Link>
+        <ul className="w-2/4 h-10 rounded-lg md:flex hidden justify-center items-center gap-4 font-[Poppins] relative">
           <NavLinks hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} />
         </ul>
         <span
-          className={`w-[25%] md:flex  justify-end items-center gap-3 ${hoveredItem ? "text-black" : "text-white"
-            }`}
+          className={`w-1/4 hidden md:flex justify-end items-center gap-2 ${
+            hoveredItem ? "text-black" : "text-white"
+          }`}
+          style={{ fontFamily: "Poppins, sans-serif" }} // Apply Poppins font here
         >
-          <FiSearch className="text-xl cursor-pointer" />
-          <FiGlobe className="text-xl cursor-pointer" />
-          {hoveredItem ? (
-            <svg
-              onClick={toggleProfile}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 256"
-              className="h-6 w-6 cursor-pointer"
-            >
-              <rect width="256" height="256" fill="none"></rect>
-              <circle cx="60" cy="60" r="12" fill="black"></circle>
-              <circle cx="128" cy="60" r="12" fill="black"></circle>
-              <circle cx="196" cy="60" r="12" fill="black"></circle>
-              <circle cx="60" cy="128" r="12" fill="black"></circle>
-              <circle cx="128" cy="128" r="12" fill="black"></circle>
-              <circle cx="196" cy="128" r="12" fill="black"></circle>
-              <circle cx="60" cy="196" r="12" fill="black"></circle>
-              <circle cx="128" cy="196" r="12" fill="black"></circle>
-              <circle cx="196" cy="196" r="12" fill="black"></circle>
-            </svg>
-          ) : (
-            <svg
-              onClick={toggleProfile}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 256"
-              className="h-6 w-6 cursor-pointer"
-            >
-              <rect width="256" height="256" fill="none"></rect>
-              <circle cx="60" cy="60" r="12" fill="white"></circle>
-              <circle cx="128" cy="60" r="12" fill="white"></circle>
-              <circle cx="196" cy="60" r="12" fill="white"></circle>
-              <circle cx="60" cy="128" r="12" fill="white"></circle>
-              <circle cx="128" cy="128" r="12" fill="white"></circle>
-              <circle cx="196" cy="128" r="12" fill="white"></circle>
-              <circle cx="60" cy="196" r="12" fill="white"></circle>
-              <circle cx="128" cy="196" r="12" fill="white"></circle>
-              <circle cx="196" cy="196" r="12" fill="white"></circle>
-            </svg>
-          )}
-          <span
-            className={` rounded-full p-1 pl-4 pr-4 ${hoveredItem ? "bg-black text-white" : "text-black bg-white"
+          <div className="flex items-center space-x-1">
+            <img
+              src="https://flagcdn.com/in.svg"
+              alt="India Flag"
+              className="w-4 h-4 object-cover rounded-full border-1"
+            />
+            <div
+              className={`flex items-center justify-center text-base cursor-pointer ${
+                hoveredItem ? " text-black " : "text-white"
               }`}
+            >
+              EN
+            </div>
+          </div>
+          <ImSearch className="text-base stroke-0 cursor-pointer" />
+          <svg
+            onClick={toggleProfile}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 256"
+            className="h-6 w-6 cursor-pointer"
+          >
+            <rect width="256" height="256" fill="none"></rect>
+            <circle
+              cx="60"
+              cy="60"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="128"
+              cy="60"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="196"
+              cy="60"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="60"
+              cy="128"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="128"
+              cy="128"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="196"
+              cy="128"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="60"
+              cy="196"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="128"
+              cy="196"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="196"
+              cy="196"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+          </svg>
+          <MdOutlineAccountCircle className="text-xl cursor-pointer" />
+          <span
+            className={`cursor-pointer rounded-full p-0 pl-4 pr-4 ${
+              hoveredItem ? "bg-black text-white" : "text-black bg-white"
+            }`}
             onClick={toggleContactForm}
           >
             Contact
@@ -429,8 +476,9 @@ const Navbar = () => {
       {profileOpen && <ProfilePage />}
       {/* Mobile nav */}
       <div
-        className={`md:hidden fixed bg-white w-full top-20 overflow-y-auto bottom-0 py-20 transition-transform duration-300 transform ${open ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`md:hidden fixed bg-white w-full top-20 overflow-y-auto bottom-0 py-20 transition-transform duration-300 transform ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <ul className="bg-white border-t-4 border-black h-screen text-center">
           <NavLinks
