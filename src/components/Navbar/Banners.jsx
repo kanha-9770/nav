@@ -10,6 +10,7 @@ import i5 from "../../Assests/first.webp";
 import i6 from "../../Assests/first.webp";
 import i7 from "../../Assests/first.webp";
 import i8 from "../../Assests/first.webp";
+import { IoIosArrowRoundForward,IoMdArrowBack } from "react-icons/io";
 
 const cars = [
   { name: 'i1', image: i1, category: 'Paper Cup Machine' },
@@ -63,16 +64,16 @@ const CarShowcase = () => {
   }, [hoveredCategory]);
 
   return (
-    <div className="w-full flex flex-col items-center font-medium">
+    <div className="w-full md:h-[60vh] border-t-[0.09px] flex flex-col items-center font-medium">
       <div className="w-full max-w-7xl flex flex-col md:flex-row rounded-lg overflow-hidden">
         <div className="flex h-full justify-center items-center w-full md:w-3/4 relative px-16">
           {filteredCars.length > 3 && (
             <button
               onClick={handlePrev}
-              className="absolute left-0 z-10 p-2 bg-gray-300 hover:bg-gray-400 rounded-full"
+              className="absolute homeScrollLBtn left-0 z-10 p-2 text-4xl"
               style={{ marginLeft: '20px' }}
             >
-              &lt;
+             <IoMdArrowBack/>
             </button>
           )}
           <div className="flex overflow-hidden w-full" ref={containerRef}>
@@ -106,10 +107,10 @@ const CarShowcase = () => {
           {filteredCars.length > 3 && (
             <button
               onClick={handleNext}
-              className="absolute right-0 z-10 p-2 bg-gray-300 hover:bg-gray-400 rounded-full"
+              className="absolute text-5xl homeScrollRBtn right-0 z-10 p-2"
               style={{ marginRight: '20px' }}
             >
-              &gt;
+              <IoIosArrowRoundForward/>
             </button>
           )}
         </div>
@@ -131,7 +132,7 @@ const CarShowcase = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-[-40px] w-full">
+      <div className="flex justify-center mt-[-10px] w-full">
         <div className="flex justify-center space-x-2" style={{ width: '75%', marginLeft: '-15rem' }}>
           {filteredCars.map((_, index) => (
             <div

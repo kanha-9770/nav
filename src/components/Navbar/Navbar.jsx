@@ -360,11 +360,11 @@ const Navbar = () => {
           className="w-1/4 z-30 md:flex hidden justify-start items-center"
         >
           <img
-            className={`z-30 ${hoveredItem ? "h-6" : "h-6"} w-18`}
+            className={`z-30 ${hoveredItem ? "h-8" : "h-8"} w-18`}
             src={
               hoveredItem
                 ? "https://www.nesscoindia.com/Assets/images/logo.webp"
-                : bglogo
+                : "https://www.nesscoindia.com/Assets/images/logo.webp"
             }
             alt="Logo"
             style={{ fontFamily: "Poppins, sans-serif" }} // Apply Poppins font here
@@ -375,7 +375,7 @@ const Navbar = () => {
         </ul>
         <span
           className={`w-1/4 hidden md:flex justify-end items-center gap-2 ${
-            hoveredItem ? "text-black" : "text-white"
+            hoveredItem ? "text-black" : "text-black"
           }`}
           style={{ fontFamily: "Poppins, sans-serif" }} // Apply Poppins font here
         >
@@ -387,7 +387,7 @@ const Navbar = () => {
             />
             <div
               className={`flex items-center justify-center text-base cursor-pointer ${
-                hoveredItem ? " text-black " : "text-white"
+                hoveredItem ? " text-black " : "text-black"
               }`}
             >
               EN
@@ -459,7 +459,7 @@ const Navbar = () => {
           <MdOutlineAccountCircle className="text-xl cursor-pointer" />
           <span
             className={`cursor-pointer rounded-full p-0 pl-4 pr-4 ${
-              hoveredItem ? "bg-black text-white" : "text-black bg-white"
+              hoveredItem ? "bg-black text-black" : "text-black bg-white"
             }`}
             onClick={toggleContactForm}
           >

@@ -1,366 +1,617 @@
+// // import React, { useState, useEffect } from "react";
+// // import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";
+// // import {
+// //   FaTwitter,
+// //   FaFacebook,
+// //   FaInstagram,
+// //   FaVimeoV,
+// //   FaMailchimp,
+// // } from "react-icons/fa";
+// // import { motion, useAnimation, AnimatePresence } from "framer-motion";
+// // import { Link } from "react-router-dom";
+// // import NavLinks from "./NavLinks";
+
+// // const Navbar = () => {
+// //   const [open, setOpen] = useState(false);
+// //   const [isScrolled, setIsScrolled] = useState(false);
+// //   const controls = useAnimation();
+// //   const [hoveredItem, setHoveredItem] = useState(null);
+
+// //   const toggleMenu = () => {
+// //     setOpen(!open);
+// //   };
+
+// //   useEffect(() => {
+// //     const handleScroll = () => {
+// //       if (window.scrollY > 50) {
+// //         setIsScrolled(true);
+// //         controls.start({
+// //           height: "60px",
+// //           backgroundColor: "rgba(72, 61, 115, 0.95)",
+// //           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+// //           transition: { duration: 0.5 },
+// //         });
+// //       } else {
+// //         setIsScrolled(false);
+// //         controls.start({
+// //           height: "100px",
+// //           backgroundColor: "transparent",
+// //           boxShadow: "none",
+// //           transition: { duration: 0.5 },
+// //         });
+// //       }
+// //     };
+
+// //     window.addEventListener("scroll", handleScroll);
+// //     return () => {
+// //       window.removeEventListener("scroll", handleScroll);
+// //     };
+// //   }, [controls]);
+
+// //   return (
+// //     <motion.nav
+// //       className="fixed top-0 w-full z-50"
+// //       animate={controls}
+// //       initial={{
+// //         height: "100px",
+// //         backgroundColor: "transparent",
+// //         boxShadow: "none",
+// //       }}
+// //     >
+// //       <div className={`py-2 ${isScrolled ? "hidden" : "block"} bg-[#a9a4d6]`}>
+// //         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+// //           <div className="w-1/3 text-sm flex items-center">
+// //             <span
+// //               className="hidden sm:inline text-gray-700"
+// //               style={{ fontFamily: "Montserrat", fontSize: "16px" }}
+// //             >
+// //               WELCOME TO NESSCO INDIA
+// //             </span>
+// //             <span className="ml-2 hidden sm:inline">
+// //               <FaVimeoV className="text-gray-700 hover:text-gray-800" />
+// //             </span>
+// //             <span className="ml-2 hidden sm:inline">
+// //               <FaInstagram className="text-gray-700 hover:text-gray-800" />
+// //             </span>
+// //             <span className="ml-2 hidden sm:inline">
+// //               <FaTwitter className="text-gray-700 hover:text-gray-800" />
+// //             </span>
+// //             <span className="ml-2 hidden sm:inline">
+// //               <FaFacebook className="text-gray-700 hover:text-gray-800" />
+// //             </span>
+// //           </div>
+// //           <div className="hidden  z-50  text-gray-700 font-bold md:block">
+// //             <img
+// //               className=" h-10 w-20"
+// //               src="https://www.nesscoindia.com/Assets/images/logo.webp"
+// //               alt="Logo"
+// //             />
+// //           </div>
+// //           <div className="w-1/3 flex justify-end items-center space-x-4">
+// //             <FaMailchimp className="text-gray-700 hover:text-gray-800" />
+// //             <p
+// //               className="text-gray-700 hover:text-gray-800"
+// //               style={{ fontFamily: "Montserrat", fontSize: "16px" }}
+// //             >
+// //               NesscoExample@gmail.com
+// //             </p>
+// //             <FaTwitter className="text-gray-700 hover:text-gray-800" />
+// //             <FaFacebook className="text-gray-700 hover:text-gray-800" />
+// //           </div>
+// //         </div>
+// //       </div>
+
+// //       <div className="bg-white">
+// //         <div className="flex items-center font-medium justify-around py-2 md:py-0">
+// //           <div className="p-5 md:w-auto w-full flex justify-between">
+// //             <span
+// //               className="text-2xl md:text-3xl cursor-pointer md:hidden"
+// //               onClick={toggleMenu}
+// //             >
+// //               {open ? <FiX /> : <FiMenu />}
+// //             </span>
+// //           </div>
+// //           <span className={`w-1/3 z-50 md:flex hidden justify-center`}>
+// //             <Link to={"/"}>
+// //               <img
+// //                 className={`h-16 w-30  ${isScrolled ? "block" : "hidden"}`}
+// //                 src="https://www.nesscoindia.com/Assets/images/logo.webp"
+// //                 alt="Logo"
+// //               />
+// //             </Link>
+// //           </span>
+// //           <ul
+// //             className={`md:flex hidden uppercase items-center gap-8 font-[Poppins] ${
+// //               hoveredItem ? "top-0" : ""
+// //             }`}
+// //           >
+// //             <NavLinks
+// //               hoveredItem={hoveredItem}
+// //               setHoveredItem={setHoveredItem}
+// //             />
+// //           </ul>
+// //           <span className="w-1/3 md:flex justify-center">
+// //             <motion.button
+// //               className="bg-[#483d73] hover:bg-red-500 text-white text-lg flex items-center justify-center rounded-md hidden"
+// //               initial={{ opacity: 0, x: 100 }}
+// //               animate={{ opacity: 1, x: 0 }}
+// //               transition={{ duration: 0.9 }}
+// //               whileHover={{ x: -5 }}
+// //             >
+// //               <motion.span
+// //                 initial={{ x: -100 }}
+// //                 animate={{ x: 0 }}
+// //                 transition={{ duration: 0.3 }}
+// //                 className="p-0 md:p-2"
+// //               >
+// //                 Inquire Now!
+// //               </motion.span>
+// //               <FiArrowRight className="ml-2" />
+// //             </motion.button>
+// //           </span>
+// //         </div>
+// //         {/* Mobile nav */}
+// //         <div
+// //           className={`md:hidden fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4 transition-transform duration-300 transform ${
+// //             open ? "translate-x-0" : "translate-x-full"
+// //           }`}
+// //         >
+// //           <span
+// //             className="text-3xl cursor-pointer absolute top-4 right-4"
+// //             onClick={toggleMenu}
+// //           >
+// //             <FiX />
+// //           </span>
+// //           <ul className="text-center">
+// //             <NavLinks
+// //               hoveredItem={hoveredItem}
+// //               setHoveredItem={setHoveredItem}
+// //             />
+// //           </ul>
+// //         </div>
+// //       </div>
+// //     </motion.nav>
+// //   );
+// // };
+
+// // export default Navbar;
+
+// // 14/6/2024
 import React, { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+import { ImSearch } from "react-icons/im";
 import { Link } from "react-router-dom";
-import Carshowcase from "./Banners"; // Import the Carshowcase component
-import { links } from "./MyLinks";
+import NavLinks from "./NavLinks";
+import { motion } from "framer-motion";
+import bglogo from "../../Assests/bglogo.png";
+import ContactForm from "../Contact/ContactForm";
+import { MdOutlineAccountCircle } from "react-icons/md";
 
-const NavLinks = () => {
-  const [heading, setHeading] = useState("");
-  const [subHeading, setSubHeading] = useState("");
-  const [hoveredItem, setHoveredItem] = useState(null);
-
-  const handleMouseEnter = (item) => {
-    setHoveredItem(item);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredItem(null);
-  };
-
+const ProfilePage = () => {
   return (
-    <>
-      {/* Container to hold all link names */}
-      {hoveredItem && (
-        <div className="fixed top-0 left-0 w-full z-50 bg-white py-4">
-          <div className="flex justify-center space-x-4">
-            {links.map((link) => (
-              <p key={link.name} className="text-black text-sm font-medium">
-                {link.name}
-              </p>
-            ))}
-          </div>
+    <div className="absolute top-16 right-0 w-64 bg-white text-black p-4 rounded-lg shadow-lg font-Poppins font-semibold z-50">
+      <div className="grid grid-cols-3 gap-2">
+        <div className="flex flex-col items-center">
+          <img
+            src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Account</span>
         </div>
-      )}
+        <div className="flex flex-col items-center">
+          <img
+            src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg"
+            alt="Search"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Search</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s"
+            alt="Business"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Business</span>
+        </div>
 
-      {links.map((link) => (
-        <div
-          key={link.name}
-          onMouseEnter={() => handleMouseEnter(link.name)}
-          onMouseLeave={handleMouseLeave}
-          className="relative" // Ensure relative positioning for the container
-        >
-          <div className="px-3 text-left md:cursor-pointer group relative">
-            <h1
-              className="py-3 z-30 text-black flex justify-between items-center md:pr-0 pr-5 border-b-2 border-transparent hover:border-gray-50 text-sm font-medium"
-              onClick={() => {
-                heading !== link.name ? setHeading(link.name) : setHeading("");
-              }}
-            >
-              <p>{link.name}</p>
-              <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
-                <ion-icon name="chevron-down"></ion-icon>
-              </span>
-            </h1>
-            {hoveredItem === link.name && (
-              <div className="fixed top-0 left-0 w-full h-[90vh] bg-white z-10 flex border-b-4 border-gray-600 justify-center items-center transition-all duration-[200ms]">
-                {link.name === "Home" && <Carshowcase />}
-                {link.submenu && link.name !== "Home" && (
-                  <div className="bg-white w-screen p-5 grid grid-cols-3 gap-10">
-                    {link.sublinks.map((mysublinks) => (
-                      <div key={mysublinks.Head} className="text-center">
-                        <h1 className="text-lg font-semibold">
-                          {mysublinks.Head}
-                        </h1>
-                        <ul>
-                          {mysublinks.sublink.map((slink) => (
-                            <li
-                              className="text-sm text-gray-600 my-2.5"
-                              key={slink.name}
-                            >
-                              <Link
-                                to={slink.link}
-                                className="hover:text-primary"
-                              >
-                                {slink.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-          {/* Mobile menus */}
-          <div className={`${heading === link.name ? "md:hidden" : "hidden"}`}>
-            {/* sublinks */}
-            {link.sublinks.map((slinks) => (
-              <div key={slinks.Head}>
-                <div>
-                  <h1
-                    onClick={() =>
-                      subHeading !== slinks.Head
-                        ? setSubHeading(slinks.Head)
-                        : setSubHeading("")
-                    }
-                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center"
-                  >
-                    {slinks.Head}
-                    <span className="text-xl md:mt-1 md:ml-2 inline">
-                      <ion-icon
-                        name={`${
-                          subHeading === slinks.Head
-                            ? "chevron-up"
-                            : "chevron-down"
-                        }`}
-                      ></ion-icon>
-                    </span>
-                  </h1>
-                  <div
-                    className={`${
-                      subHeading === slinks.Head ? "md:hidden" : "hidden"
-                    }`}
-                  >
-                    {slinks.sublink.map((slink) => (
-                      <li className="py-3 pl-14" key={slink.name}>
-                        <Link to={slink.link}>{slink.name}</Link>
-                      </li>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Account</span>
         </div>
-      ))}
-    </>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg"
+            alt="Search"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Search</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s"
+            alt="Business"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Business</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Account</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Account</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg"
+            alt="Search"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Search</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s"
+            alt="Business"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Business</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Account</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://i.pinimg.com/originals/96/41/d6/9641d6b5aa4c60eee46459b4274f68b4.png"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Account</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://i.pinimg.com/564x/17/f4/e0/17f4e08a32dd227581ed630d3051081c.jpg"
+            alt="Search"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Search</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRZRwOEqf22XIzYboMCyerdrVp92C_pOU3Qg&s"
+            alt="Business"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Business</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/000/649/768/original/news-icon-symbol-sign-vector.jpg"
+            alt="Account"
+            className="w-8 h-8 rounded-full"
+          />
+          <span>Account</span>
+        </div>
+        {/* Add more icons similarly */}
+      </div>
+    </div>
   );
 };
 
-export default NavLinks;
-//navbar 6/13/2024
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi";
-import Logo from "../../Assests/logo.png";
-import NavLinks from "./NavLinks";
-import {
-  FaTwitter,
-  FaFacebook,
-  FaInstagram,
-  FaVimeoV,
-  FaMailBulk,
-  FaMailchimp,
-} from "react-icons/fa";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [isContactFormVisible, setContactFormVisible] = useState(false);
+
+  const toggleContactForm = () => {
+    setContactFormVisible(!isContactFormVisible);
+  };
+
   const toggleMenu = () => {
     setOpen(!open);
   };
-  return (
-    <nav className="fixed top-0 w-full z-50">
-      <div className="py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="w-1/3 text-white text-sm font-family: Montserrat, cursive; flex items-center">
-            <span
-              className="hidden sm:inline"
-              style={{ fontFamily: "Montserrat", fontSize: "16px" }}
-            >
-              WELCOME TO NESSCO INDIA
-            </span>
-            <span className="ml-2 hidden sm:inline">
-              <FaVimeoV className="text-white hover:text-gray-800" />
-            </span>
-            <span className="ml-2 hidden sm:inline">
-              <FaInstagram className="text-white hover:text-gray-800" />
-            </span>
-            <span className="ml-2 hidden sm:inline">
-              <FaTwitter className="text-white hover:text-gray-800" />
-            </span>
-            <span className="ml-2 hidden sm:inline">
-              <FaFacebook className="text-white hover:text-gray-800" />
-            </span>
-          </div>
-          <div className="hidden border-t-2 border-b-2 text-white font-bold md:block">
-            <img
-              className="h-10 w-20 "
-              src="https://www.nesscoindia.com/Assets/images/logo.webp"
-              alt=""
-              srcset=""
-            />{" "}
-          </div>
-          <div className="w-1/3 flex justify-end items-center space-x-4">
-            <FaMailchimp className="text-white hover:text-gray-800" />
-            <p
-              className="text-white hover:text-gray-800"
-              style={{ fontFamily: "Montserrat", fontSize: "16px" }}
-            >
-              NesscoExample@gmail.com
-            </p>
-            <FaTwitter className="text-white hover:text-gray-800" />
-            <FaFacebook className="text-white hover:text-gray-800" />
-          </div>
-        </div>
-      </div>
 
-      <div className="flex items-center font-medium justify-around">
-        <div className="p-5 md:w-auto w-full flex justify-between">
-          <span
-            className="text-2xl md:text-3xl cursor-pointer md:hidden"
-            onClick={toggleMenu}
-          >
-            {open ? <FiX /> : <FiMenu />}
-          </span>
-        </div>
-        <ul className="md:flex hidden uppercase items-center gap-8 font-[Poppins]">
-          <NavLinks />
-        </ul>
-        {/* Mobile nav */}
-        <div
-          className={`
-            md:hidden fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
-            transition-transform duration-300 transform ${
-              open ? "translate-x-0" : "translate-x-full"
+  const toggleProfile = () => {
+    setProfileOpen(!profileOpen);
+  };
+
+  const iconStyle = {
+    strokeWidth: "1", // Adjust thickness here
+    stroke: "black", // Example stroke color
+    cursor: "pointer",
+  };
+
+  return (
+    <motion.nav
+      className={`fixed top-2 left-2 right-2 bg-slate-200 z-50 backdrop-blur-[4px] ${
+        hoveredItem ? "rounded-t-lg bg-white" : "rounded-lg"
+      }`}
+    >
+      <div className="flex items-center gap-4 justify-between h-14 px-4 md:px-8">
+        <span
+          className="text-2xl md:text-3xl cursor-pointer md:hidden"
+          onClick={toggleMenu}
+        >
+          {open ? <FiX /> : <FiMenu />}
+        </span>
+        <Link
+          to={"/"}
+          className="w-1/4 z-30 md:flex hidden justify-start items-center"
+        >
+          <img
+            className={`z-30 ${hoveredItem ? "h-8" : "h-8"} w-18`}
+            src={
+              hoveredItem
+                ? "https://www.nesscoindia.com/Assets/images/logo.webp"
+                : bglogo
             }
-          `}
+            alt="Logo"
+            style={{ fontFamily: "Poppins, sans-serif" }} // Apply Poppins font here
+          />
+        </Link>
+        <ul className="w-2/4 h-10 rounded-lg md:flex hidden justify-center items-center gap-4 font-[Poppins] relative">
+          <NavLinks hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} />
+        </ul>
+        <span
+          className={`w-1/4 hidden md:flex justify-end items-center gap-2 ${
+            hoveredItem ? "text-black" : "text-white"
+          }`}
+          style={{ fontFamily: "Poppins, sans-serif" }} // Apply Poppins font here
         >
-          <span
-            className="text-3xl cursor-pointer absolute top-4 right-4"
-            onClick={toggleMenu}
-          >
-            <FiX />
-          </span>
-          <ul className="text-center">
-            <NavLinks />
-          </ul>
-        </div>
-        <img alt="" className="md:cursor-pointer h-9" />
-      </div>
-    </nav>
-  );
-};
-
-//navlinks
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Banners from "./Banners"; // Import the Banners component
-import { links } from "./MyLinks";
-
-const NavLinks2 = () => {
-  const [heading, setHeading] = useState("");
-  const [subHeading, setSubHeading] = useState("");
-  const [hoveredItem, setHoveredItem] = useState(null);
-
-  const handleMouseEnter = (item) => {
-    setHoveredItem(item);
-  };
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    // Set isVisible to true after a delay
-    const timeout = setTimeout(() => {
-      setIsVisible(true);
-    }, 500); // Delay of 500 milliseconds
-
-    return () => clearTimeout(timeout);
-  }, []);
-  const handleMouseLeave = () => {
-    setHoveredItem(null);
-  };
-
-  return (
-    <>
-      {links.map((link) => (
-        <div
-          key={link.name}
-          onMouseEnter={() => handleMouseEnter(link.name)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="px-3 text-left md:cursor-pointer group relative">
-            <h1
-              className="py-3 z-30 text-black flex justify-between items-center md:pr-0 pr-5 border-b-2 border-transparent hover:border-gray-50 text-sm font-medium"
-              onClick={() => {
-                heading !== link.name ? setHeading(link.name) : setHeading("");
-              }}
+          <div className="flex items-center space-x-1">
+            <img
+              src="https://flagcdn.com/in.svg"
+              alt="India Flag"
+              className="w-4 h-4 object-cover rounded-full border-1"
+            />
+            <div
+              className={`flex items-center justify-center text-base cursor-pointer ${
+                hoveredItem ? " text-black " : "text-white"
+              }`}
             >
-              <p className="z-30">{link.name}</p>
-              <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
-                <ion-icon name="chevron-down"></ion-icon>
-              </span>
-            </h1>
-            {hoveredItem === link.name && (
-              <div
-                className="fixed top-0 left-0 w-full h-[80vh] bg-white z-10 flex border-b-4 border-gray-600 justify-center items-center"
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateY(0)" : "translateY(-100%)",
-                  transition: "opacity 0.5s, transform 0.5s",
-                }}
-              >
-                {link.name === "Home" && <Banners />}
-                {link.submenu && link.name !== "Home" && (
-                  <div className="bg-white w-screen p-5 grid grid-cols-3 gap-10">
-                    {link.sublinks.map((mysublinks) => (
-                      <div key={mysublinks.Head} className="text-center">
-                        <h1 className="text-lg font-semibold">
-                          {mysublinks.Head}
-                        </h1>
-                        <ul>
-                          {mysublinks.sublink.map((slink) => (
-                            <li
-                              className="text-sm text-gray-600 my-2.5"
-                              key={slink.name}
-                            >
-                              <Link
-                                to={slink.link}
-                                className="hover:text-primary"
-                              >
-                                {slink.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
+              EN
+            </div>
           </div>
-          {/* Mobile menus */}
-          <div className={`${heading === link.name ? "md:hidden" : "hidden"}`}>
-            {/* sublinks */}
-            {link.sublinks.map((slinks) => (
-              <div key={slinks.Head}>
-                <div>
-                  <h1
-                    onClick={() =>
-                      subHeading !== slinks.Head
-                        ? setSubHeading(slinks.Head)
-                        : setSubHeading("")
-                    }
-                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center"
-                  >
-                    {slinks.Head}
-                    <span className="text-xl md:mt-1 md:ml-2 inline">
-                      <ion-icon
-                        name={`${
-                          subHeading === slinks.Head
-                            ? "chevron-up"
-                            : "chevron-down"
-                        }`}
-                      ></ion-icon>
-                    </span>
-                  </h1>
-                  <div
-                    className={`${
-                      subHeading === slinks.Head ? "md:hidden" : "hidden"
-                    }`}
-                  >
-                    {slinks.sublink.map((slink) => (
-                      <li className="py-3 pl-14" key={slink.name}>
-                        <Link to={slink.link}>{slink.name}</Link>
-                      </li>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </>
+          <ImSearch className="text-base stroke-0 cursor-pointer" />
+          <svg
+            onClick={toggleProfile}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 256"
+            className="h-6 w-6 cursor-pointer"
+          >
+            <rect width="256" height="256" fill="none"></rect>
+            <circle
+              cx="60"
+              cy="60"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="128"
+              cy="60"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="196"
+              cy="60"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="60"
+              cy="128"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="128"
+              cy="128"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="196"
+              cy="128"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="60"
+              cy="196"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="128"
+              cy="196"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+            <circle
+              cx="196"
+              cy="196"
+              r="18"
+              fill={hoveredItem ? "black" : "white"}
+            ></circle>
+          </svg>
+          <MdOutlineAccountCircle className="text-xl cursor-pointer" />
+          <span
+            className={`cursor-pointer rounded-full p-0 pl-4 pr-4 ${
+              hoveredItem ? "bg-black text-white" : "text-black bg-white"
+            }`}
+            onClick={toggleContactForm}
+          >
+            Contact
+          </span>
+        </span>
+        {isContactFormVisible && (
+          <ContactForm
+            isVisible={isContactFormVisible}
+            onClose={toggleContactForm}
+          />
+        )}
+      </div>
+      {profileOpen && <ProfilePage />}
+      {/* Mobile nav */}
+      <div
+        className={`md:hidden fixed bg-white w-full top-20 overflow-y-auto bottom-0 py-20 transition-transform duration-300 transform ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <ul className="bg-white border-t-4 border-black h-screen text-center">
+          <NavLinks
+            hoveredItem={hoveredItem}
+            setHoveredItem={setHoveredItem}
+            open={open}
+            setOpen={setOpen}
+          />
+        </ul>
+      </div>
+    </motion.nav>
   );
 };
 
+export default Navbar;
+// Navbar.js
+// import React, { useState, useEffect } from "react";
+// import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";
+// import { FaTwitter, FaFacebook, FaInstagram, FaVimeoV, FaMailchimp } from "react-icons/fa";
+// import { motion, useAnimation } from "framer-motion";
+// import { Link } from "react-router-dom";
+// import NavLinks from "./NavLinks";
+// import Home from "../Home/Home";
+
+// const Navbar = () => {
+//   const [open, setOpen] = useState(false);
+//   const [isScrolled, setIsScrolled] = useState(false);
+//   const controls = useAnimation();
+//   const [hoveredItem, setHoveredItem] = useState(null);
+
+//   const toggleMenu = () => {
+//     setOpen(!open);
+//   };
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       if (window.scrollY > 50) {
+//         setIsScrolled(true);
+//         controls.start({
+//           height: "60px",
+//           backgroundColor: "rgba(72, 61, 115, 0.95)",
+//           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+//           transition: { duration: 0.5 },
+//         });
+//       } else {
+//         setIsScrolled(false);
+//         controls.start({
+//           height: "100px",
+//           backgroundColor: "transparent",
+//           boxShadow: "none",
+//           transition: { duration: 0.5 },
+//         });
+//       }
+//     };
+
+//     window.addEventListener("scroll", handleScroll);
+//     return () => {
+//       window.removeEventListener("scroll", handleScroll);
+//     };
+//   }, [controls]);
+
+//   return (
+//     <motion.nav
+//       className="fixed top-0 w-full z-50"
+//       animate={controls}
+//       initial={{
+//         height: "100px",
+//         boxShadow: "none",
+//       }}
+//     >
+//       <div className={`hidden bg-[rgb(242 242 242 )] ${!isScrolled ? "md:block" : isScrolled ? "hidden" : "block"}`}>
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:flex justify-between items-center">
+//           <div className="w-1/3 text-sm flex items-center">
+//             <span className="sm:inline text-gray-700" style={{ fontFamily: "Montserrat", fontSize: "14px" }}>
+//               <Home />
+//             </span>
+//           </div>
+//           <div className="hidden text-gray-700 font-bold md:block">
+//             <img
+//               className="h-10 w-20"
+//               src="https://www.nesscoindia.com/Assets/images/logo.webp"
+//               alt="Logo"
+//             />
+//           </div>
+//           <div className="w-1/3 flex justify-end items-center space-x-4">
+//             <FaMailchimp className="text-gray-700 hover:text-gray-800" />
+//             <p className="text-gray-700 hidden hover:text-gray-800" style={{ fontFamily: "Montserrat", fontSize: "16px" }}>
+//               NesscoExample@gmail.com
+//             </p>
+//             <FaTwitter className="text-gray-700 hover:text-gray-800" />
+//             <FaFacebook className="text-gray-700 hover:text-gray-800" />
+//           </div>
+//         </div>
+//       </div>
+//       <div className="bg-white">
+//         <div className="flex items-center font-medium justify-around py-2 md:py-0">
+//           <div className="p-5 md:w-auto w-full flex justify-between">
+//             <span className="z-30 bg:white text-2xl md:text-3xl cursor-pointer md:hidden" onClick={toggleMenu}>
+//               {open ? <FiX /> : <FiMenu />}
+//             </span>
+//           </div>
+//           <span className={`w-1/3 z-50 md:flex hidden justify-center`}>
+//             <Link to={"/"}>
+//               <img
+//                 className={`h-16 w-30 ${isScrolled || hoveredItem ? (!isScrolled && hoveredItem ? "transform -translate-y-14 block" : "block") : "hidden"}`}
+//                 src="https://www.nesscoindia.com/Assets/images/logo.webp"
+//                 alt="Logo"
+//               />
+//             </Link>
+//           </span>
+//           <ul className="md:flex hidden uppercase items-center gap-8 font-[Poppins] relative">
+//             <NavLinks hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} />
+//             <div className="flex items-center">
+//               <button className="bg-green-600 text-white py-2 px-4 rounded inline-flex items-center" onClick={() => setHoveredItem("get-a-quote")}>
+//                 Get A Quote
+//                 <FiArrowRight className="ml-2" />
+//               </button>
+//             </div>
+//           </ul>
+
+//           <ul className={`md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4 duration-500 z-20 ${open ? "left-0" : "left-[-100%]"}`}>
+//             <NavLinks hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} toggleMenu={toggleMenu} />
+//             <div className="py-5">
+//               <button className="bg-green-600 text-white py-2 px-4 rounded inline-flex items-center">
+//                 Get A Quote
+//                 <FiArrowRight className="ml-2" />
+//               </button>
+//             </div>
+//           </ul>
+//         </div>
+//       </div>
+//     </motion.nav>
+//   );
+// };
+
+// export default Navbar;

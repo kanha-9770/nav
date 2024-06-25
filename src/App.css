@@ -11,5 +11,39 @@ body {
   scroll-behavior: smooth;
   margin: 0;
 }
+.homeScrollBtn {
+  bottom: auto;
+  transform: translateY(5%);
+  animation: scrollPop 0.5s ease-in infinite alternate;
+}
+.homeScrollBtn > button {
+  font-size: 3vmax;
+  color: rgb(0, 0, 0);
+}
 
 
+.homeScrollRBtn{
+  bottom: auto;
+  transform: translateX(8%);
+  animation: scrollRPop 0.5s ease-in infinite alternate;
+
+}
+.homeScrollLBtn{
+  bottom: auto;
+  transform: translateX(8%);
+  animation: scrollRPop 0.5s ease-in infinite alternate;
+
+}
+@keyframes scrollPop {
+  to {
+    transform: translateY(15%);
+  }
+}
+@keyframes scrollRPop {
+  to {
+    transform: translateX(10%);
+  }
+}
+.color-container {
+  @apply flex items-center justify-center px-4 py-4 rounded-full bg-gray-300 backdrop-blur
+}

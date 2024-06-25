@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Banners from "./Banners";
@@ -6,6 +7,7 @@ import Services from "./Service";
 import Industries from "./Industries";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Layout from "./Layout";
 const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
@@ -29,7 +31,6 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
     }, 500);
     return () => clearTimeout(timeout);
   }, []);
-
   return (
     <>
       {links.map((link) => (
@@ -47,11 +48,11 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
               }}
             >
               <p
-                className={`flex item-center p-1 font-midium pl-2 pr-2 justify-center ${hoveredItem
-                    ? heading === link.name
-                      ? "bg-black text-white rounded-full"
-                      : "text-black"
-                    : "text-white"
+                className={`flex item-center p-0 font-midium pl-2 pr-2 justify-center ${hoveredItem
+                  ? heading === link.name
+                    ? "bg-black text-black rounded-full"
+                    : "text-black"
+                  : "text-black"
                   } text-base z-30 rounded-full`}
               >
                 {link.name}
@@ -61,7 +62,7 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
             {hoveredItem === link.name && (
               <>
                 <div
-                  className={`fixed left-0  shadow-lg bg-white w-full rounded-b-xl  h-auto md:h-[65vh] z-10 top-14 flex justify-center items-center `}
+                  className={`fixed left-0  shadow-lg bg-white w-full rounded-b-xl  h-auto  z-10 top-14 flex justify-center items-center `}
                   onMouseLeave={handleMouseLeave}
                 >
                   <div
@@ -69,7 +70,7 @@ const NavLinks = ({ hoveredItem, isScrolled, setHoveredItem, open }) => {
                     className="absolute bg-white top-0  left-0 w-full "
                   ></div>
 
-                  {link.comp === "AboutUs" && <Services />}
+                  {link.comp === "AboutUs" && <Layout />}
                   {link.name === "Products" && <Banners />}
                   {link.name === "Industries" && <Industries />}
                   {link.submenu &&
